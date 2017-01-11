@@ -1,0 +1,16 @@
+html, body {
+height: 100%;
+padding-top: 25px; 
+overflow-x: hidden;
+}
+div{
+	overflow-x: hidden;
+}
+
+.cell{
+	flex: 0 0 40rem;                       /* don't grow, don't shrink, width */
+	height: 20rem;
+	margin-bottom: 5px;
+	padding: 5px;
+	background-color: rgba(0,0,0,.3);
+}
