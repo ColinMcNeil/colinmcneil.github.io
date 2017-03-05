@@ -3,19 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
     <title>Colin McNeil</title>
-
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="content.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
   </head>
   <body>
@@ -37,10 +29,10 @@
   	    </div>
   	  </div>
     </nav>
-    <!-->The DIV's below are for each of the pages.<!-->
-    <!-->Home<!-->
+    <!--The DIV's below are for each of the pages. -->
+    <!--Home-->
     <div 
-    style="background-image:url('home.jpg');
+    style="background-image:url('images/home.jpg');
     background-size:100%;height:100%;width:100%;
     z-index:1;position: absolute;padding: 10px;text-align: center;"
     id="homepage" class="contentpage">
@@ -50,16 +42,16 @@
         <p style="line-height:4rem; font-size: 4rem">I am a
         </p>
         <p style="font-size: 3rem;color:rgb(255,0,0);color:white;">
-          | Programmer | Graphic Designer | IT Specialist
+          Programmer | Graphic Designer | IT Specialist
         </p>
         <p style="font-size: 1rem;color:rgb(255,0,0);color:white;">
           (And I made this.)
         </p>
       </div>
       
-    <!-->Contact<!-->
+    <!--Contact-->
     </div>
-    <div style="background-image:url('home.jpg');height:100%;width:100%;z-index:0;position: absolute;text-align: center;left:-100%;padding: 10px" scrolling='no' id="contactpage" class="contentpage">
+    <div style="background-image:url('images/home.jpg');height:100%;width:100%;z-index:0;position: absolute;text-align: center;left:-100%;padding: 10px" scrolling='no' id="contactpage" class="contentpage">
       <div style="background-color: rgba(0,0,0,.7);padding: 20px">
         <p style="color: white;font-size: 2rem">LinkedIn</p>
         <a href="https://www.linkedin.com/pub/colin-mcneil/b9/867/958" style="text-decoration:none;"><span style="font: 80% Arial,sans-serif; color:#0783B6;"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Colin McNeil's LinkedIn profile" style="vertical-align:middle;font-size:3rem" border="0">&nbsp;View Colin McNeil's profile</span></a>
@@ -69,51 +61,72 @@
       </div>
     </div>
 
-    <!-->Resume<!-->
-    <div style="background-image:url('home.jpg');height:100%;width:100%;top:50px;z-index:0;position: absolute;left: -100%;-webkit-overflow-scrolling: touch;overflow: hidden" id="resumepage" class="contentpage">
+    <!--Resume-->
+    <div style="background-image:url('images/home.jpg');height:100%;width:100%;top:50px;z-index:0;position: absolute;left: -100%;-webkit-overflow-scrolling: touch;overflow: hidden" id="resumepage" class="contentpage">
       <iframe src="https://docs.google.com/document/d/1KpeyMAx-yPBgW5r9OYVYSf1qmJSQ1RfxDkjjS2JScN4/pub?embedded=true" style="width:100%;height:100%;top:25px"></iframe>
     </div>
-
-    <!-->Portfolio<!-->
-    <div style="background-image:url('home.jpg');height:100%;width:100%;z-index:0;position: absolute;display: flex;flex-wrap: wrap;justify-content: space-around;padding-top: 10px;left: -100%" id="portfoliopage" class="contentpage">
+    <!--Portfolio-->
+    <div style="background-image:url('images/home.jpg');height:100%;width:100%;z-index:0;position: absolute;display: flex;flex-wrap: wrap;justify-content: space-around;padding-top: 10px;left: -100%" id="portfoliopage" class="contentpage">
       <div class="cell">
-        <a href="https://play.google.com/store/apps/details?id=com.pygy.GraviTea&hl=en" target="_blank"><img src='gravitea.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
+        <a href="https://play.google.com/store/apps/details?id=com.pygy.GraviTea&hl=en" target="_blank"><img src='images/gravitea.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
         <div style="">
           <p><b style="color: white;">Gravitea</b></p>
           <p style="color: rgb(180,180,180)">GraviTea is an app I designed in highschool with Construct2, an HTML & JS Game Engine that could export to cordova. All art was done from scratch.</p>
         </div>
       </div>
       <div class="cell">
-        <a href="http://media.geography.uconn.edu/GEOG2410/Fall2016/McNeil/Byways/Byways.html" target="_blank"><img src='byways.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
+        <a href="http://media.geography.uconn.edu/GEOG2410/Fall2016/McNeil/Byways/Byways.html" target="_blank"><img src='images/byways.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
         <div style="padding: 5px">
           <p><b style="color: white;">Scenic Byways</b></p>
           <p style="color: rgb(180,180,180)">A project to map scenic byways from old US Government databases. More info about how I took the data and parsed it into a google map is on the page.</p>
         </div>
       </div>
       <div class="cell">
-        <a href="http://media.geography.uconn.edu/GEOG2410/Fall2016/McNeil/MachineSpace/MachineSpace.html" target="_blank"><img src='machinespace.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
+        <a href="http://media.geography.uconn.edu/GEOG2410/Fall2016/McNeil/MachineSpace/MachineSpace.html" target="_blank"><img src='images/machinespace.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
         <div style="padding: 5px">
           <p><b style="color: white;">Glastonbury, CT - MachineSpace</b></p>
           <p style="color: rgb(180,180,180)">A project to map contrast Glastonbury, CT's urbanization and machine space from 1934 to 2009.</p>
         </div>
       </div>
       <div class="cell">
-        <a href="https://github.com/ColinMcNeil/Personal-Website" target="_blank"><img src='mysite.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
+        <a href="https://github.com/ColinMcNeil/Personal-Website" target="_blank"><img src='images/mysite.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
         <div style="padding: 5px">
           <p><b style="color: white;">This Website</b></p>
           <p style="color: rgb(180,180,180)">This site was designed with bootstrap. All the animations and control are done with JQuery.</p>
         </div>
       </div>
       <div class="cell">
-        <a href="https://500px.com/colinmcneil" target="_blank"><img src='photography.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
+        <a href="https://500px.com/colinmcneil" target="_blank"><img src='images/photography.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
         <div style="padding: 5px">
           <p><b style="color: white;">Aerial Photography</b></p>
           <p style="color: rgb(180,180,180);">Photos taken with a DJI Phantom</p>
         </div>
       </div>
-      <div class="cell">Coming Soon</div>
-      <div class="cell">Coming Soon</div>
-      <div class="cell">Coming Soon</div>
+      <div class="cell">
+        <a href="http://cam13052.geog2510.uconn.edu/Lab5/Lab5.html" target="_blank"><img src='images/googlevis.png' style="float:left;max-width:100%;max-height:100%;"></img>
+        </a>
+        <div style="padding: 5px">
+          <p><b style="color: white;">Google Visualization API</b></p>
+          <p style="color: rgb(180,180,180);">Data visualized with Google's Chart API</p>
+        </div>
+      </div>
+      <div class="cell">
+        <a href="http://cam13052.geog2510.uconn.edu/Lab6/Lab6.html" target="_blank"><img src='images/leaflet1.png' style="float:left;max-width:100%;max-height:100%;"></img>
+        </a>
+        <div style="padding: 5px">
+          <p><b style="color: white;">Basic Leaflet</b></p>
+          <p style="color: rgb(180,180,180);">Town of Coventry, CT landmarks mapped with leaflet.js</p>
+        </div>
+      </div>
+      <div class="cell"><a href="http://cam13052.geog2510.uconn.edu/Lab7/Lab7.html" target="_blank"><img src='images/leaflet2.png' style="float:left;max-width:100%;max-height:100%;"></img>
+        </a>
+        <div style="padding: 5px">
+          <p><b style="color: white;">State of Connecticut GIS Mapping</b></p>
+          <p style="color: rgb(180,180,180);">Using leaflet to map just about every publicly accessible GIS datapoint, with responsive
+            layers. (Takes about a minute to load the 15,000 DEP polygon points )
+          </p>
+        </div>
+      </div>
       <div class="cell">Coming Soon</div>
     </div>
 
@@ -122,88 +135,6 @@
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    //The below code is used to animate and swap pages. The array of strings is used to keep track of the ordering.
-    //The ordering decides if the animation swipes left or right.
-      var current = $("#homepage");
-      var order = ['homepage','contactpage','resumepage','portfoliopage']
-      $( "#home" ).click(function() {
-        swap($("#homepage"))
-      });
-      $( "#contact" ).click(function() {
-        swap($("#contactpage"))
-      });
-      $( "#resume" ).click(function() {
-        swap($("#resumepage"))
-      });
-      $( "#portfolio" ).click(function() {
-        swap($("#portfoliopage"))
-      });
-
-      //Function to route to the correct page. Swap is called on the hash ex: colinmcneil.me/#resume
-      $( document ).ready(function() {
-        console.log( "ready!" );
-        var hash = location.hash;
-        console.log()
-        switch(hash){
-          case '#contact':
-            swap($('#contactpage'))
-            break;
-          case '#resume':
-            swap($('#resumepage'))
-            break;
-          case '#portfolio':
-            swap($('#portfoliopage'))
-            break;
-        }
-      });
-      
-      //swap(<element to swap to>)
-      //Function for swapping and animating swaps. All pages are kept invisible off screen while not loaded.
-      //When swapping, both old and new elements are rendered, placed in the screen, and ordered to that the new
-      //element can appear under the old one. 
-
-      function swap(element){
-        if(element.attr('id')==current.attr('id')){
-          return false;
-        }
-        current.css('z-index','2')
-        element.css('z-index','1')
-        current.css('visibility','visible')
-        element.css('visibility','visible')
-        element.css('left','0px')
-        console.log('Swapping '+current.attr('id')+' with '+element.attr('id'))
-        if (order.indexOf(element.attr('id'))<order.indexOf(current.attr('id'))){
-          console.log('Going left')
-          current.animate({left:"-100%"},200,function order(){
-            current.css('z-index','0')
-            current.css('visibility','hidden')
-            current = element
-          })
-        }
-        else{
-          console.log('Going right')
-          current.animate({left:"100%"},200,function order(){
-            current.css('z-index','0')
-            current.css('visibility','hidden')
-            current = element
-          })
-        }
-      }
-
-      //This function does nothing! Deprecated! Shoo! *eyes dart back and forth*
-      var sizevals = ["2rem","8rem"]
-      $('#titlename').click(function() {
-         $('#titlename').text(function(i, text){
-            console.log(text)
-            var sizeval = sizevals[0]
-            console.log(sizeval)
-            $('#titlename').css("font-size",sizeval)
-            sizevals.reverse()
-            return text === "01000011 01101111 01101100 01101001 01101110 00100000 01001101 01100011 01001110 01100101 01101001 01101100"? "Colin McNeil":"01000011 01101111 01101100 01101001 01101110 00100000 01001101 01100011 01001110 01100101 01101001 01101100";
-          })
-      });
-  
-    </script>
+    <script type="text/javascript" src='src/main.js'></script>
   </body>
 </html>
