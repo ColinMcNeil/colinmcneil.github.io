@@ -15,6 +15,7 @@ $("#portfolio").click(function () {
 
 //Function to route to the correct page. Swap is called on the hash ex: colinmcneil.me/#resume
 $(document).ready(function () {
+    $('#homepage').css('visibility','visible')
     //Call a variable to know the width of the window
     var screenWidth = $(window).width();
     $('body').css('max-width', screenWidth + 'px');
