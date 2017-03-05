@@ -1,7 +1,8 @@
 html, body {
-height: 100%;
-padding-top: 25px; 
-overflow-x: hidden;
+	height: 100%;
+	padding-top: 25px; 
+	overflow-x: hidden;
+	background-color: rgb(135, 54, 0);
 }
 div{
 	overflow-x: hidden;
