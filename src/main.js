@@ -15,6 +15,10 @@ $("#portfolio").click(function () {
 
 //Function to route to the correct page. Swap is called on the hash ex: colinmcneil.me/#resume
 $(document).ready(function () {
+    //Call a variable to know the width of the window
+    var screenWidth = $(window).width();
+    $('body').css('max-width', screenWidth + 'px');
+
     console.log("ready!");
     var hash = location.hash;
     switch (hash) {
@@ -37,6 +41,7 @@ $(document).ready(function () {
 //This is not the best method to do it, but I think it's faily elegant for not using any external libraries.
 //Everything is rendered initially so the page transitions smoothly
 function swap(element) {
+    $('#mynav').css('width', $(window).width()+'px')
     if (element.attr('id') == current.attr('id')) { //Do nothing if currently on the page
         return false;
     }
@@ -48,7 +53,7 @@ function swap(element) {
     console.log('Swapping ' + current.attr('id') + ' with ' + element.attr('id'))
     if (order.indexOf(element.attr('id')) < order.indexOf(current.attr('id'))) {//Checks array to see what direction to animate from
         console.log('Going left')
-        current.animate({ left: "-100%" }, 200, function order() {
+        current.animate({ left: "-100%",right:"-100%" }, 200, function order() {
             current.css('z-index', '0')
             current.css('visibility', 'hidden')
             current = element
@@ -56,7 +61,7 @@ function swap(element) {
     }
     else {
         console.log('Going right')
-        current.animate({ left: "100%" }, 200, function order() {
+        current.animate({ right: "0%",left:'100%' }, 200, function order() {
             current.css('z-index', '0')
             current.css('visibility', 'hidden')
             current = element
