@@ -8,7 +8,6 @@
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="content.css" rel="stylesheet">
-
   </head>
   <body>
     <div class='background'></div>
@@ -33,8 +32,7 @@
     <!--The DIV's below are for each of the pages. -->
     <!--Home-->
     <div 
-    style="height:100%;width:100%;
-    z-index:1;position: absolute;padding: 10px;text-align: center;position: fixed;"
+    style="z-index:1;padding: 10px;text-align: center;position: fixed;"
     id="homepage" class="contentpage">
       <div style="display: inline-block;padding:4rem;margin: 0 auto;width:auto;position: relative;transform: translateY(-40%);top:40%;font-size: 8rem;background-color: rgba(0,0,0,.2);border:solid black 3px;border-radius: 10px;color: white">
         <p id="titlename" style="line-height:8rem;">Colin McNeil
@@ -51,7 +49,7 @@
       
     <!--Contact-->
     </div>
-    <div style="height:100%;width:100%;z-index:0;position: absolute;text-align: center;right:0%;padding: 10px" scrolling='no' id="contactpage" class="contentpage">
+    <div style="text-align: center;padding: 10px" scrolling='no' id="contactpage" class="contentpage">
       <div style="background-color: rgba(0,0,0,.7);padding: 20px">
         <p style="color: white;font-size: 2rem">LinkedIn</p>
         <a href="https://www.linkedin.com/pub/colin-mcneil/b9/867/958" style="text-decoration:none;"><span style="font: 80% Arial,sans-serif; color:#0783B6;"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Colin McNeil's LinkedIn profile" style="vertical-align:middle;font-size:3rem" border="0">&nbsp;View Colin McNeil's profile</span></a>
@@ -62,83 +60,152 @@
     </div>
 
     <!--Resume-->
-    <div style="height:100%;width:100%;z-index:0;position: absolute;right:0%;" id="resumepage" class="contentpage">
+    <div id="resumepage" class="contentpage">
       <iframe src="https://docs.google.com/document/d/1KpeyMAx-yPBgW5r9OYVYSf1qmJSQ1RfxDkjjS2JScN4/pub?embedded=true" style="width:100%;height:100%;top:25px"></iframe>
     </div>
+
     <!--Portfolio-->
-    <div style="height:100%;width:100%;z-index:0;position: absolute;display: flex;flex-wrap: wrap;justify-content: space-around;padding-top: 10px;right:0%" id="portfoliopage" class="contentpage">
+    <div style="display: flex;flex-wrap: wrap;justify-content: space-around;padding-top: 10px;" id="portfoliopage" class="contentpage">
       <div class="cell">
-        <a href="https://play.google.com/store/apps/details?id=com.pygy.GraviTea&hl=en" target="_blank"><img src='images/gravitea.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
-        <div style="">
-          <p><b style="color: white;">Gravitea</b></p>
-          <p style="color: rgb(180,180,180)">GraviTea is an app I designed in highschool with Construct2, an HTML & JS Game Engine that could export to cordova. All art was done from scratch.</p>
-        </div>
-      </div>
-      <div class="cell">
-        <a href="http://media.geography.uconn.edu/GEOG2410/Fall2016/McNeil/Byways/Byways.html" target="_blank"><img src='images/byways.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
-        <div style="padding: 5px">
-          <p><b style="color: white;">Scenic Byways</b></p>
-          <p style="color: rgb(180,180,180)">A project to map scenic byways from old US Government databases. More info about how I took the data and parsed it into a google map is on the page.</p>
-        </div>
-      </div>
-      <div class="cell">
-        <a href="http://media.geography.uconn.edu/GEOG2410/Fall2016/McNeil/MachineSpace/MachineSpace.html" target="_blank"><img src='images/machinespace.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
-        <div style="padding: 5px">
-          <p><b style="color: white;">Glastonbury, CT - MachineSpace</b></p>
-          <p style="color: rgb(180,180,180)">A project to map contrast Glastonbury, CT's urbanization and machine space from 1934 to 2009.</p>
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="https://play.google.com/store/apps/details?id=com.pygy.GraviTea&hl=en" target="_blank">
+              <img src='images/gravitea.png'  style="float:left;max-width:100%;max-height:100%;"></img>
+            </a>
+          </div>
+          <div class='portfolio_obj'>
+            <p><b style="color: white;">Gravitea</b></p>
+            <p style="color: rgb(180,180,180)">GraviTea is an app I designed in highschool with Construct2, an HTML & JS Game Engine that could export to cordova. All art was done from scratch.</p>
+          </div>
         </div>
       </div>
       <div class="cell">
-        <a href="https://github.com/ColinMcNeil/Personal-Website" target="_blank"><img src='images/mysite.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
-        <div style="padding: 5px">
-          <p><b style="color: white;">This Website</b></p>
-          <p style="color: rgb(180,180,180)">This site was designed with bootstrap. All the animations and control are done with JQuery.</p>
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="http://media.geography.uconn.edu/GEOG2410/Fall2016/McNeil/Byways/Byways.html" target="_blank">
+              <img src='images/byways.png'  style="float:left;max-width:100%;max-height:100%;"></img>
+            </a>
+          </div>
+          <div class='portfolio_obj'>
+            <p><b style="color: white;">Scenic Byways</b></p>
+            <p style="color: rgb(180,180,180)">A project to map scenic byways from old US Government databases. More info about how I took the data and parsed it into a google map is on the page.</p>
+          </div>
         </div>
       </div>
       <div class="cell">
-        <a href="https://500px.com/colinmcneil" target="_blank"><img src='images/photography.png'  style="float:left;max-width:100%;max-height:100%;"></img></a>
-        <div style="padding: 5px">
-          <p><b style="color: white;">Aerial Photography</b></p>
-          <p style="color: rgb(180,180,180);">Photos taken with a DJI Phantom</p>
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="http://media.geography.uconn.edu/GEOG2410/Fall2016/McNeil/MachineSpace/MachineSpace.html" target="_blank">
+              <img src='images/machinespace.png'  style="float:left;max-width:100%;max-height:100%;"></img>
+            </a>
+          </div>
+      
+          <div class='portfolio_obj'>
+            <p><b style="color: white;">Glastonbury, CT - MachineSpace</b></p>
+            <p style="color: rgb(180,180,180)">A project to map contrast Glastonbury, CT's urbanization and machine space from 1934 to 2009.</p>
+          </div>
         </div>
       </div>
       <div class="cell">
-        <a href="http://cam13052.geog2510.uconn.edu/Lab5/Lab5.html" target="_blank"><img src='images/googlevis.png' style="float:left;max-width:100%;max-height:100%;"></img>
-        </a>
-        <div style="padding: 5px">
-          <p><b style="color: white;">Google Visualization API</b></p>
-          <p style="color: rgb(180,180,180);">Data visualized with Google's Chart API</p>
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="https://github.com/ColinMcNeil/Personal-Website" target="_blank">
+              <img src='images/mysite.png'  style="float:left;max-width:100%;max-height:100%;"></img>
+            </a>
+          </div>
+          <div class='portfolio_obj'>
+            <p><b style="color: white;">This Website</b></p>
+            <p style="color: rgb(180,180,180)">This site was designed with bootstrap. All the animations and control are done with JQuery.</p>
+          </div>
         </div>
       </div>
       <div class="cell">
-        <a href="http://cam13052.geog2510.uconn.edu/Lab6/Lab6.html" target="_blank"><img src='images/leaflet1.png' style="float:left;max-width:100%;max-height:100%;"></img>
-        </a>
-        <div style="padding: 5px">
-          <p><b style="color: white;">Basic Leaflet</b></p>
-          <p style="color: rgb(180,180,180);">Town of Coventry, CT landmarks mapped with leaflet.js</p>
-        </div>
-      </div>
-      <div class="cell"><a href="http://cam13052.geog2510.uconn.edu/Lab7/Lab7.html" target="_blank"><img src='images/leaflet2.png' style="float:left;max-width:100%;max-height:100%;"></img>
-        </a>
-        <div style="padding: 5px">
-          <p><b style="color: white;">State of Connecticut GIS Mapping</b></p>
-          <p style="color: rgb(180,180,180);">Using leaflet to map just about every publicly accessible GIS datapoint, with responsive
-            layers. (Takes about a minute to load the 15,000 DEP polygon points )
-          </p>
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="https://500px.com/colinmcneil" target="_blank">
+              <img src='images/photography.png'  style="float:left;max-width:100%;max-height:100%;"></img>
+            </a>
+          </div>
+          <div class='portfolio_obj'>
+            <p><b style="color: white;">Aerial Photography</b></p>
+            <p style="color: rgb(180,180,180);">Photos taken with a DJI Phantom</p>
+          </div>
         </div>
       </div>
       <div class="cell">
-        <a href="http://memetrends.colinmcneil.me" target="_blank"><img src='images/memetrends.png' 
-        style="float:left;max-width:100%;max-height:100%;border:solid grey 2px;"></img>
-        </a>
-        <p style="color: rgb(180,180,180);">
-            
-        <div style="padding: 5px">
-          <p><b style="color: white;">Meme Trends</b></p>
-            Analytics for internet meme popularity & trends using embeded google data.
-          </p>
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="http://cam13052.geog2510.uconn.edu/Lab5/Lab5.html" target="_blank">
+              <img src='images/googlevis.png' style="float:left;max-width:100%;max-height:100%;"></img>
+            </a>
+          </div>
+          <div class='portfolio_obj'>
+            <p><b style="color: white;">Google Visualization API</b></p>
+            <p style="color: rgb(180,180,180);">Data visualized with Google's Chart API</p>
+          </div>
         </div>
       </div>
+      <div class="cell">
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="http://cam13052.geog2510.uconn.edu/Lab6/Lab6.html" target="_blank">
+              <img src='images/leaflet1.png' style="float:left;max-width:100%;max-height:100%;"></img>
+            </a>
+          </div>
+          <div class="portfolio_obj">
+            <p><b style="color: white;">Basic Leaflet</b></p>
+            <p style="color: rgb(180,180,180);">
+              Town of Coventry, CT landmarks mapped with leaflet.js
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="http://cam13052.geog2510.uconn.edu/Lab7/Lab7.html" target="_blank">
+              <img src='images/leaflet2.png' style="max-width:100%;max-height:100%;"></img>
+            </a>
+          </div>
+          <div class="portfolio_obj">
+            <p><b style="color: white;">State of Connecticut GIS Mapping</b></p>
+            <p style="color: rgb(180,180,180);">Using leaflet to map just about every publicly accessible GIS datapoint, with responsive
+              layers. (Takes about a minute to load)
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="http://memetrends.colinmcneil.me" target="_blank">
+              <img src='images/memetrends.png' style="float:left;max-width:100%;max-height:100%;border:solid grey 2px;"></img>
+            </a>
+          </div>
+          <div class="portfolio_obj">
+            <p style="color: rgb(180,180,180);">
+              <p><b style="color: white;">Meme Trends</b></p>
+              Analytics for internet meme popularity & trends using embeded google data.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class='innercell'>
+          <div class='portfolio_obj'>
+            <a href="http://watson.colinmcneil.me" target="_blank">
+              <img src='images/watson.png' style="float:left;max-width:100%;max-height:100%;border:solid grey 2px;"></img>
+            </a>
+          </div>
+          <div class="portfolio_obj">
+            <p style="color: rgb(180,180,180);">
+              <p><b style="color: white;">IBM Watson AI</b></p>
+              A simple console where you can ask IBM's AI, Watson, questions about me. 
+            </p>    
+          </div>
+        </div>
+      </div>
+      
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

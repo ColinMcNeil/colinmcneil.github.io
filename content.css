@@ -4,18 +4,29 @@ html, body {
 	overflow-x: hidden;
 	background-color: rgb(135, 54, 0);
 }
-
-
 .cell{
 	color: rgb(180,180,180);
 	flex: 0 0 40rem;
 	height: 20rem;
-	margin-bottom: 5px;
 	padding: 5px;
-	background-color: rgba(0,0,0,.3);
+	
+	display: flex;
 }
+.innercell{
+	background-color: rgba(0,0,0,.3);
+	width: 100%;
+	height:100%;
+	display: flex;
+	border: solid black 1px;
+	border-radius: 2px;
+}
+
 .contentpage{
 	visibility: hidden;
+	height:100%;width:100%;
+	z-index:0;
+	position: absolute;
+	right:0%;
 }
 .background{
 	background-image:url('images/home.jpg');
@@ -24,4 +35,8 @@ html, body {
 	height: 100%;
 	z-index: 0;
 	background-size: cover;
+}
+.portfolio_obj{
+	color: rgb(180,180,180);
+	width: 50%;height:100%;padding:5px;
 }
