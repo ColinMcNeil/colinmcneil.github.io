@@ -48,7 +48,7 @@ function swap(element) {
     }
     current.css('z-index', '1') //Set the CSS ordering so that the TO page is below and loaded, and the FROM page is on top
     element.css('z-index', '2')
-    current.css('visibility', 'visible')
+    //current.css('visibility', 'hidden')
     element.css('visibility', 'visible')
     console.log('Swapping ' + current.attr('id') + ' with ' + element.attr('id'))
     if (order.indexOf(element.attr('id')) < order.indexOf(current.attr('id'))) {//Checks array to see what direction to animate from
@@ -60,6 +60,9 @@ function swap(element) {
             current.css('visibility', 'hidden')
             current = element
         })
+        current.animate({ left: "-100%", right: 'auto' }, 200, function order() {//current comes in from right 
+
+        })
     }
     else {
         console.log('Going right')
@@ -69,6 +72,9 @@ function swap(element) {
             current.css('z-index', '0')
             current.css('visibility', 'hidden')
             current = element
+        })
+        current.animate({ left: "100%", right: '0' }, 200, function order() {//current comes in from right 
+
         })
     }
 }
