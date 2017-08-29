@@ -78,3 +78,6 @@ html, body {
 	border-radius: 2px;
 	color: white;
 }
+.titleLetter{
+	display:inline-block;
+}

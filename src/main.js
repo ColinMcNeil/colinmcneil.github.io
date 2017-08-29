@@ -12,7 +12,18 @@ $("#resume").click(function () {
 $("#portfolio").click(function () {
     swap($("#portfoliopage"))
 });
+function titleDataStruct(titles) {
+    this.titles=titles
+    this.index=0;
+    this.getNext = function () {
+        if (this.index == this.titles.length) { this.index = 0;}
+        val = this.titles[this.index]
+        this.index+=1;
+        return val;
+    }
 
+}
+myTitles = new titleDataStruct(['Colin McNeil','Programmer','Graphic Designer','IT Specialist','Maker','Nerd','Lover of Node.js','Teacher','Colin McNeil','Okay, you can navigate away now','No seriously, this is the end','Wanna know a secret?','Click me.'])
 //Function to route to the correct page. Swap is called on the hash ex: colinmcneil.me/#resume
 $(document).ready(function () {
     $('#homepage').css('visibility','visible')
@@ -33,6 +44,7 @@ $(document).ready(function () {
             swap($('#portfoliopage'))
             break;
     }
+    generateTitleLetters(myTitles.getNext())
 });
 
 //swap(<element to swap to>)
@@ -77,17 +89,44 @@ function swap(element) {
 
         })
     }
+    
 }
-
-//This function does nothing! Deprecated! Shoo! *eyes dart back and forth*
-var sizevals = ["2rem", "8rem"]
-$('#titlename').click(function () {
-    $('#titlename').text(function (i, text) {
-        console.log(text)
-        var sizeval = sizevals[0]
-        console.log(sizeval)
-        $('#titlename').css("font-size", sizeval)
-        sizevals.reverse()
-        return text === "01000011 01101111 01101100 01101001 01101110 00100000 01001101 01100011 01001110 01100101 01101001 01101100" ? "Colin McNeil" : "01000011 01101111 01101100 01101001 01101110 00100000 01001101 01100011 01001110 01100101 01101001 01101100";
+function generateTitleLetters(title) {
+    $('#titleContainer').empty()
+    TitleArr = title.split('');
+    writeChar(0, TitleArr)
+}
+function writeChar(index, characters) {
+    if (index == characters.length) { setTimeout(() => { deleteChar(); }, 500); return }
+    
+    var myelement = $('<span class="titleLetter">' + characters[index] + '</span>')
+    if (characters[index] == ' ') { $('#titleContainer').append(' ')}
+    $('#titleContainer').append(myelement)
+    myelement.transition({ scale: 0.5 }, 0, () => {
+        myelement.transition({
+            scale: 1.0
+        },
+            200, 'ease', () => { writeChar(index + 1, characters) })
     })
-});
+}
+function deleteChar() {
+    if (!$('#titleContainer').html().includes('span')) { console.log('done!');generateTitleLetters(myTitles.getNext()); return }
+    var myelement = $('.titleLetter').last()
+    myelement.transition({
+        perspective: '100px',
+        rotateY: '180deg'
+    },
+        100, () => { myelement.remove();deleteChar() })
+    
+}
+$('#titleContainer').click(() => {
+    myTitles = new titleDataStruct(['Colin McNeil', 'Programmer', 'Graphic Designer', 'IT Specialist', 'Maker', 'Nerd', 'Colin McNeil', 'Okay, you can navigate away now', 'No seriously, this is the end','Much Easter Egg!','Very Wow!'])
+    myTitles.index = 9;
+    
+    setInterval(() => {
+        var colors = ['red', 'blue', 'green', 'purple', 'yellow']
+        var colorIndex = Math.floor(Math.random()*4)
+        $('.titleLetter').transition({ 'color': colors[colorIndex] },900)
+    }, 800)
+    
+})
