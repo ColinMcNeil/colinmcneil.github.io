@@ -28,8 +28,8 @@ myTitles = new titleDataStruct(['Colin McNeil','Programmer','Graphic Designer','
 $(document).ready(function () {
     $('#homepage').css('visibility','visible')
     //Call a variable to know the width of the window
-    var screenWidth = $(window).width();
-    $('body').css('max-width', screenWidth + 'px');
+    //var screenWidth = $(window).width();
+    //$('body').css('max-width', screenWidth + 'px');
 
     console.log("ready!");
     var hash = location.hash;

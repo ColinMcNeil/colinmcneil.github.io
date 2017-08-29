@@ -6,6 +6,9 @@ html, body {
 	overflow-x: hidden;
 	background-color: #414041;
 }
+#mynav{
+	font-size:2rem;
+}
 .cell{
 	color: rgb(180,180,180);
 	flex: 0 0 35rem;
@@ -72,7 +75,7 @@ html, body {
 	position: relative;
 	transform: translateY(-40%);
 	top:40%;
-	font-size: 8rem;
+	font-size: 7rem;
 	background-color: #4e4e4e;
 	border:dashed 2px #6b6b6b;
 	border-radius: 2px;
