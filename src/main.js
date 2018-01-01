@@ -23,7 +23,7 @@ function titleDataStruct(titles) {
     }
 
 }
-myTitles = new titleDataStruct(['Colin McNeil','Programmer','Graphic Designer','IT Specialist','Maker','Nerd','Lover of Node.js','Teacher','Colin McNeil','Okay, you can navigate away now','No seriously, this is the end','Wanna know a secret?','Click me.'])
+myTitles = new titleDataStruct(['Colin McNeil','Programmer','Graphic Designer','IT Specialist','Maker','Nerd','Teacher','Colin McNeil','Okay, you can navigate away now','No seriously, this is the end','Wanna know a secret?','Click me.'])
 //Function to route to the correct page. Swap is called on the hash ex: colinmcneil.me/#resume
 $(document).ready(function () {
     $('#homepage').css('visibility','visible')
@@ -120,13 +120,13 @@ function deleteChar() {
     
 }
 $('#titleContainer').click(() => {
-    myTitles = new titleDataStruct(['Colin McNeil', 'Programmer', 'Graphic Designer', 'IT Specialist', 'Maker', 'Nerd', 'Colin McNeil', 'Okay, you can navigate away now', 'No seriously, this is the end','Much Easter Egg!','Very Wow!'])
+    myTitles = new titleDataStruct(['Very Colin McNeil', 'Much Programmer', 'So Graphic Designer', 'Very IT Specialist', 'So Maker', 'Much Nerd', 'Wow Colin McNeil', 'Okay, you can navigate away now', 'No seriously, this is the end','Much Easter Egg!','Very Wow!'])
     myTitles.index = 9;
     
     setInterval(() => {
         var colors = ['red', 'blue', 'green', 'purple', 'yellow']
         var colorIndex = Math.floor(Math.random()*4)
-        $('.titleLetter').transition({ 'color': colors[colorIndex] },900)
+        $('.titleLetter').css({ 'color': colors[colorIndex] },0)
     }, 800)
     
 })
