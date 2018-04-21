@@ -37,4 +37,3 @@ var toName = function () {
     console.log('herp')
     owl.animate({ d: namePoints }, 900,()=>{titleComponent.ready=true}); 
 }
-
