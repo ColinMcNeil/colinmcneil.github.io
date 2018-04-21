@@ -1,3 +1,3 @@
-My Personal Website
+My Personal Website Redesigned
 
-[colinmcneil.me](http://colinmcneil.me/)
+[colinmcneil.github.io/Personal-Website-Redesign](https://colinmcneil.github.io/Personal-Website-Redesign/)
