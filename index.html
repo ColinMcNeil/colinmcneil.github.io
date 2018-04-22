@@ -13,7 +13,7 @@
         <svg version="1.1" id="owlSVG" 
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
         x="0px" y="0px" v-on:mouseover="hover" v-on:mouseleave="unHover" v-bind:class="{ready:ready,loading:loading}"
-        v-on:click="clicked" v-if="!loading"
+        v-on:click="clicked" v-if="!loading && !loaded"
         enable-background="new 0 0 500 500" xml:space="preserve" viewBox="0 0 1857.5234 500.99999" width="100%">
           <path id="owl" fill="#58595B"
           d="M355.421,148.998l-12.256-20.899l-1.808-22.582l-0.91-26.88l-0.004-0.119l-15.487-40.993l-0.007-0.574
@@ -88,6 +88,20 @@
       <transition name="fade">
         <h1 id="loadingText" v-if="loading">loading.</h1>
       </transition>
+     
+    </div>
+    <div id="menu">
+      <transition name="fade">
+      <h1 id="menuTitle" v-if="loaded">menu</h1>
+      </transition>
+      <transition name="fade-slow">
+      <div id="menuItems" v-if="loaded">
+        <a id="resume" class="menuItem">resume</a>
+        <a id="contact" class="menuItem">contact</a>
+        <a id="projects" class="menuItem">projects</a>
+      </div>
+      </transition>
+    
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
