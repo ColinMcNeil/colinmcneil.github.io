@@ -118,6 +118,12 @@
     text-align: center;
     box-sizing: border-box;
     transition: ease-in-out all 0.3s;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   .menuTitle:hover{
     border: black dashed 1px;
