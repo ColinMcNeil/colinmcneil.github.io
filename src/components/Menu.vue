@@ -7,10 +7,10 @@
       </transition>
       <transition name="fade-slow">
       <div class="menuItems" v-bind:class="{expandedItems:expanded,}" v-if="loaded">
-        <a id="resume" class="menuItem" v-on:click="loadView(0)">resume</a>
-        <a id="contact" class="menuItem" v-on:click="loadView(1)">contact</a>
-        <a id="projects" class="menuItem" v-on:click="loadView(2)">projects</a>
-        <a v-if="expanded" id="back" class="menuItem" v-on:click="loadView(-1)">back</a>
+        <a id="resume" class="menuItem" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(0)">resume</a>
+        <a id="contact" class="menuItem" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(1)">contact</a>
+        <a id="projects" class="menuItem" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(2)">projects</a>
+        <a v-if="expanded" id="back" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
       </div>
       </transition>
     </div>
@@ -22,7 +22,14 @@
     name: 'Menu',
     data () {
         this.getResume()
-        return { loaded: false, resume: 'Loading...', view: '<span>menu</span>', expanded:false }
+        return { 
+          loaded: false, 
+          resume: 'Loading...', 
+          view: '<span>menu</span>', 
+          expanded:false,
+          menuClickable:false,
+          hidden:false,
+        }
     },
     methods: {
         load () {
@@ -42,8 +49,9 @@
             })
         },
         loadView (view) {
+          if(!this.menuClickable) return
+          this.menuClickable=false;
           this.expanded=true;
-
           if (view === -1) {
             this.hidden=true;
             this.expanded = false
@@ -53,7 +61,10 @@
             setTimeout(()=>{
               this.view = `<span>menu</span>`
             },300)
+            return
           }
+          
+          this.menuClickable=false;
           if (view === 0) {
             setTimeout(()=>{
               this.view = `<div id="resumeContainer">${this.resumeHTML}</div>`
@@ -72,6 +83,16 @@
             },300)
             //
           }
+        },
+        mouseOver(){
+          setTimeout(()=>{
+            this.menuClickable=true
+          },300)
+        },
+        mouseLeave(){
+          setTimeout(()=>{
+            this.menuClickable=false
+          },300)
         }
     },
     mounted () {
