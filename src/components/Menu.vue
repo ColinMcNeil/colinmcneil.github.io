@@ -202,6 +202,7 @@
     border: solid black 1px;
     padding: 20px;
     font-family: "Consolas";
+    font-weight:500;
     width: 100%;
     left: 0;
   }
