@@ -183,7 +183,7 @@
   .expandedItems{
     font-family: "Wire One";
     top: 10%;
-    left: 10%;
+    left: 80px;
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -197,11 +197,20 @@
     width: 4em;
     text-align: center;
     display: block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   .menuItem:hover{
     font-size: 2em;
     box-shadow: none;
     cursor: pointer;
+  }
+  .expandedItems .menuItem{
+    height:4em;
   }
   #back{
     box-shadow: inset 0px 0px 0px 5em rgb(65, 151, 77);
