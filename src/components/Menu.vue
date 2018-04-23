@@ -13,6 +13,10 @@
         <a v-if="expanded" id="back" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
       </div>
       </transition>
+      <div v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">
+        hire
+      </div>
+      
     </div>
 </template>
 
@@ -73,13 +77,55 @@
           }
           if (view === 1) {
             setTimeout(()=>{
-              this.view = `<div id="contactContainer">Contact</div>`
+              this.view = 
+              `<div id="contactContainer">
+                <h1>contact</h1>
+                <div class="hireContainerI">
+                  <p><strong>[contact me]</strong></p>
+                  <p>
+                  <a href="https://github.com/colinmcneil" target="_blank">
+                    githhub.com/colinmcneil
+                  </a>
+                  | 
+                  <a href="https://github.com/squaredlabs" target="_blank">
+                    github.com/squaredlabs</p>
+                  </a>
+                  <p>860-338-5383</p>
+                  <p>colinmcneil@gmail.com | colin@uconn.edu</p>
+                  <p>Andover, CT</p>
+                </div>
+              </div>`
+              
             },300)
             //
           }
           if (view === 2) {
             setTimeout(()=>{
               this.view = `<div id="projectsContainer">Projects</div>`
+            },300)
+            //
+          }
+          if (view === 3) {
+            setTimeout(()=>{
+              this.view = `<div id="hireContainer">
+                <h1>need a site?</h1>
+                <p><strong>I can make it.</strong></p>
+                <div class="hireContainerI">
+                  <p><strong>[static]</strong></p>
+                  <p>portfolios | resumes | personal pages</p>
+                  <p>250$</p>
+                </div>
+                <div class="hireContainerI">
+                  <p><strong>[dynamic]</strong></p>
+                  <p>web apps | databases | accounts</p>
+                  <p>contact for $</p>
+                </div>
+                <div class="hireContainerI">
+                  <p><strong>[support]</strong></p>
+                  <p><strong>free</strong> for first month</p>
+                  <p>30$/hr</p>
+                </div>
+              </div>`
             },300)
             //
           }
@@ -159,6 +205,21 @@
     width: 100%;
     left: 0;
   }
+  #contactContainer{
+    font-size: 2em;
+    text-align: center;
+  }
+  #hireContainer{
+    font-size: 3em;
+    text-align: center;
+  }
+  
+  .hireContainerI{
+    border:solid black 2px;
+    margin:10px;
+    padding: 5px;
+    font-weight: 500;
+  }
 </style>
 
 <style scoped>
@@ -227,6 +288,21 @@
     box-shadow: none;
     cursor: pointer;
     color:black;
+  }
+  .hire{
+    font-size:2em;
+    width:15rem;
+    font-family: "Wire One";
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%,50%);
+    transition: ease 0.3s all;
+    box-shadow: inset 0px 0px 0px 5em rgb(65, 151, 77);
+    color:rgb(65, 151, 77);
+  }
+  .hire:hover{
+
   }
 
   .fade-slow-enter-active, .fade-slow-leave-active {
