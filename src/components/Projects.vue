@@ -189,7 +189,7 @@
     }
     #back{
         position: absolute;
-        top: 70%;
+        bottom: 10%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-decoration: none;
@@ -209,5 +209,16 @@
     }
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
         opacity: 0;
+    }
+    @media only screen and (max-width: 500px) {
+        #projects{
+            width: 100%;
+        }
+        #scrollbarHide{
+            display: none;
+        }
+        .project .imgContainer{
+                height: 180px;
+        }
     }
 </style>

@@ -27,7 +27,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.path !== '/' && !from.name) next({ path: '/', replace: true, href: '/' })
+  //if (to.path !== '/' && !from.name) next({ path: '/', replace: true, href: '/' })
   next()
 })
 export default router
