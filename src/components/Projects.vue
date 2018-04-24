@@ -146,6 +146,7 @@
         margin-bottom: 5px;
     }
     .project a{
+        word-wrap: break-word;
         font-size: 1rem;
         padding: 0 25% 0 25%;
     }
