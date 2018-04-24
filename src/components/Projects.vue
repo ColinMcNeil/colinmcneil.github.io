@@ -113,7 +113,6 @@
   @import url('https://fonts.googleapis.com/css?family=Wire+One');
     #projects{
         font-family: "Consolas";
-        font-size: 2em;
         position: absolute;
         top: 50%;
         left: 50%;
