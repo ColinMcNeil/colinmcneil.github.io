@@ -101,7 +101,7 @@
           }
           if (view === 2) {
             setTimeout(()=>{
-              this.view = `<div id="projectsContainer">Projects</div>`
+              this.$router.push('projects')
             },300)
             //
           }

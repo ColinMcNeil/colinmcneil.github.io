@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Title from '@/components/Title.vue'
 import Menu from '@/components/Menu.vue'
+import Projects from '@/components/Projects.vue'
 
 Vue.use(Router)
 
@@ -16,12 +17,17 @@ const router = new Router({
       path: '/menu',
       name: 'Menu',
       component: Menu
+    },
+    {
+      path: '/projects',
+      name: 'Projects',
+      component: Projects
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.path === '/menu' && from.name !== 'Title') next({ path: '/', replace: true, href: '/' })
+  if (to.path !== '/' && !from.name) next({ path: '/', replace: true, href: '/' })
   next()
 })
 export default router
