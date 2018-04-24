@@ -10,6 +10,8 @@
                     <img v-bind:src="project.icon"/>
                     <div class="desc">{{project.desc}}</div>
                 </div>
+                <div id="count">{{projectIndex}}|{{projects.length-2}}</div>
+                <div id="meta">arrays start at 0</div>
             </div>
             </transition-group>
         </div>
@@ -63,11 +65,11 @@
         name: 'Projects',
         data () {
             this.lastScroll=0;
-            this.projectIndex=0;
             this.scrollable=true;
             projects[0].visible=true;
             return { 
-                projects:projects
+                projects:projects,
+                projectIndex:0
             }
         },
         methods: {
@@ -91,7 +93,7 @@
                 if(this.projectIndex<0)this.projectIndex=0;
                 if(this.projectIndex==this.projects.length-1)this.projectIndex=this.projects.length-2;
                 this.projects[this.projectIndex].visible=true;
-                setTimeout(()=>this.scrollable=true,50)
+                setTimeout(()=>this.scrollable=true,500)
                 this.$forceUpdate();
                 //console.log(document.getElementById('projects').scrollTop) 
                 
@@ -204,6 +206,9 @@
         cursor: pointer;
         font-weight: bold;
         opacity: 1;
+    }
+    #meta{
+        font-size: 0.5em;
     }
     .fade-enter-active, .fade-leave-active {
         transition: opacity .3s ease;

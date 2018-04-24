@@ -96,12 +96,10 @@
       toOwl () {
         this.ready = false
         if (this.animating) this.owl.stop()
-        console.log('derp')
         this.owl.animate({ d: this.owlPoints }, 1200, mina.linear())
       },
       toName () {
         if (this.animating) this.owl.stop()
-        console.log('herp')
         this.owl.animate({ d: this.namePoints }, 1200, mina.linear(), () => { this.ready = true })
       },
       hover () {
