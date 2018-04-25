@@ -35,9 +35,7 @@ router.beforeEach((to, from, next) => {
   if (process.env.NODE_ENV == 'production') {
     if (to.path !== '/' && !from.name) next({ path: '/', replace: true, href: '/' })
   }
-  else {
-    next()
-  }
+  next()
   
 })
 export default router
