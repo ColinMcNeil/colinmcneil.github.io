@@ -30,8 +30,9 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.path == '/resume') next({ path: '/menu',name:'Menu', params:{skip:true}})
-  else if (process.env.NODE_ENV == 'production') {
+  if (to.path == '/resume') next({ path: '/menu', name: 'Menu', params: { skip: true } })
+  
+  if (process.env.NODE_ENV == 'production') {
     if (to.path !== '/' && !from.name) next({ path: '/', replace: true, href: '/' })
   }
   else {
