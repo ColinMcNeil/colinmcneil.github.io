@@ -70,7 +70,8 @@
         },
         methods:{
             projectHover(){
-                this.hovered=true;
+                setTimeout(()=>{this.hovered=true;},300);
+                
             },
             projectLeave(){
                 this.hovered=false;
