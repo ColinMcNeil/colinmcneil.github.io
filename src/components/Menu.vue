@@ -13,7 +13,7 @@
         <a v-if="expanded" id="back" v-on:mouseover="mouseOver(-1)" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
       </div>
       </transition>
-      <div v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">
+      <div v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver(3)" v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">
         hire
       </div>
       
