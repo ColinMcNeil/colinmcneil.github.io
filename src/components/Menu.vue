@@ -24,21 +24,24 @@
   import showdown from 'showdown'
   export default {
     name: 'Menu',
+    props:['skip'],
     data () {
-        this.getResume()
+      this.getResume()
+      if(this.skip){
+          setTimeout(()=>{
+            this.loadView(0)
+          },500)
+        }
         return { 
-          loaded: false, 
+          loaded: true, 
           resume: 'Loading...', 
           view: '<span>menu</span>', 
           expanded:false,
-          menuClickable:false,
+          menuClickable:this.skip,
           hidden:false,
         }
     },
     methods: {
-        load () {
-            this.loaded = true
-        },
         getResume () {
             let converter = new showdown.Converter()
             let url = 'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece2'+
@@ -46,8 +49,6 @@
             this.$http.get(url).then(response => {
                 let data = response.body
                 this.resumeHTML=converter.makeHtml(data);
-                
-                
             }, response => {
                 console.error(JSON.stringify(response))
             })
@@ -142,7 +143,8 @@
         }
     },
     mounted () {
-      this.load()
+      
+      
       
     }
   }

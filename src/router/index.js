@@ -3,8 +3,10 @@ import Router from 'vue-router'
 import Title from '@/components/Title.vue'
 import Menu from '@/components/Menu.vue'
 import Projects from '@/components/Projects.vue'
+import VueResource from 'vue-resource'
 
 Vue.use(Router)
+Vue.use(VueResource)
 
 const router = new Router({
   routes: [
@@ -16,7 +18,8 @@ const router = new Router({
     {
       path: '/menu',
       name: 'Menu',
-      component: Menu
+      component: Menu,
+      props: true
     },
     {
       path: '/projects',
@@ -27,7 +30,13 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.path !== '/' && !from.name && process.env.NODE_ENV=='production') next({ path: '/', replace: true, href: '/' })
-  next()
+  if (to.path == '/resume') next({ path: '/menu',name:'Menu', params:{skip:true}})
+  else if (process.env.NODE_ENV == 'production') {
+    if (to.path !== '/' && !from.name) next({ path: '/', replace: true, href: '/' })
+  }
+  else {
+    next()
+  }
+  
 })
 export default router

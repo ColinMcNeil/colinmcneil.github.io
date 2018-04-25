@@ -3,15 +3,17 @@
         <img id="up" class="arrow" src="../assets/arrow.svg"/>
         <div id="projects">
             <transition-group name="fade">
-            <div class= "project" v-for="project in projects" v-bind:key="project.name" v-if="project.visible">
+            <div class= "project" v-for="project in projects" v-bind:key="project.name">
                 <h2>{{project.name}}</h2>
                 <a :href="project.url" target="_blank">{{project.url}}</a>
                 <div class="imgContainer">
                     <img v-bind:src="project.icon"/>
                     <div class="desc">{{project.desc}}</div>
                 </div>
-                <div id="count">{{projectIndex}}|{{projects.length-2}}</div>
-                <div id="meta">arrays start at 0</div>
+                <div v-if="project.index==0" id="meta">tap/hover image</div>
+                <div id="count">{{project.index}}|{{projects.length-1}}</div>
+                
+                <div v-if="project.index==0" id="meta">arrays start at 0</div>
             </div>
             </transition-group>
         </div>
@@ -27,19 +29,19 @@
             name:"SquaredLabs.uconn.edu",
             url:"https://github.com/squaredlabs/squaredlabs.uconn.edu",
             icon:require("../assets/squaredlabs.png"),
-            desc:"Developed Connect & Lab pages, as well as many other components, for the SquaredLabs site."
+            desc:"Developed Connect & Lab pages, as well as many other components, for the SquaredLabs site.",
         },
         {
             name:"Turtle Browser",
             url:"https://github.com/colinmcneil/turtle-browser",
             icon:"https://camo.githubusercontent.com/e7cf27340ca831dff7a8f9d5d5f1df6fa621fce7/687474703a2f2f672e7265636f726469742e636f2f57376c365379314d446f2e676966",
-            desc:"A minimalist web browser with many features which uses a fraction of the memory of others. "
+            desc:"A minimalist web browser with many features which uses a fraction of the memory of others. ",
         },
         {
             name:"Geographic Survey App",
             url:"https://www.engr.uconn.edu/pdf/UCONN-Senior-Design-2018-Web.pdf",
             icon:require("../assets/sdp.png"),
-            desc:"Developed the backend and web portal for a Geographic Survey App for UCONN's School of Agriculture. "
+            desc:"Developed the backend and web portal for a Geographic Survey App for UCONN's School of Agriculture. ",
         },
         {
             name:"Aspect Ratio Tools",
@@ -53,58 +55,19 @@
             url:"https://github.com/colinmcneil/",
             icon:require("../assets/contributions.png"),
             desc:"A minimalist web browser with many features which uses a fraction of the memory of others. "
-        },
-        {
-            name:"PADDING",
-            url:"a",
-            icon:'',
-            desc:"a"
         }
     ]
     export default {
         name: 'Projects',
         data () {
-            this.lastScroll=0;
-            this.scrollable=true;
-            projects[0].visible=true;
+            for(let i =0;i<projects.length;i++){
+                projects[i].index=i;
+            }
             return { 
                 projects:projects,
-                projectIndex:0
             }
         },
-        methods: {
-            handleScroll(){
-                let scroll =document.getElementById('projects').scrollTop
-                if (scroll>10){
-                    this.gotoProject(1)
-                }
-                else if(scroll<10){
-                    this.gotoProject(-1)
-                }
-                this.lastScroll=scroll
-            },
-            gotoProject(increment){
-                document.getElementById('projects').scrollTop = 10;
-                if(!this.scrollable)return
-                //console.log(this.projectIndex)
-                this.scrollable=false;
-                this.projects[this.projectIndex].visible=false;
-                this.projectIndex+=increment;
-                if(this.projectIndex<0)this.projectIndex=0;
-                if(this.projectIndex==this.projects.length-1)this.projectIndex=this.projects.length-2;
-                this.projects[this.projectIndex].visible=true;
-                setTimeout(()=>this.scrollable=true,500)
-                this.$forceUpdate();
-                //console.log(document.getElementById('projects').scrollTop) 
-                
-            }
-        },
-        mounted () {
-            document.getElementById('projects').addEventListener('scroll', this.handleScroll);
-        },
-        destroyed () {
-            //document.getElementById('projects').removeEventListener('scroll', this.handleScroll);
-        }
+
     }
 </script>
 
@@ -123,7 +86,6 @@
         transform: translate(-50%,-50%);
         text-align: center;
         overflow-y:auto;
-        min-height: 400px;
     }
     #scrollbarHide{
         position: absolute;
@@ -136,7 +98,7 @@
     }
     .project{
         position: relative;
-        height: calc(100% + 20px);
+        height: 100%;
         display: flex;
         flex-direction: column;
     }
@@ -219,6 +181,14 @@
     @media only screen and (max-width: 500px) {
         #projects{
             width: 100%;
+            height: 300px;
+            transform: translate(-50%,-70%);
+        }
+        #count{
+            display: none;
+        }
+        #meta{
+            display: none;
         }
         #scrollbarHide{
             display: none;
