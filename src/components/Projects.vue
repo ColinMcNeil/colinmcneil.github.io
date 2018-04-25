@@ -10,8 +10,6 @@
                 </div>
                 <div class="count">{{project.index}}|{{projects.length-1}}</div>
                 <div v-if="project.index==0" class="meta">tap/hover image</div>
-                
-                
                 <div v-if="project.index==0" class="meta"> arrays start at 0</div>
                 <div v-if="project.index==0" class="arrow meta ">↓</div>
             </div>
@@ -54,8 +52,8 @@
             name:"Open Source Contributions",
             url:"https://github.com/colinmcneil/",
             icon:require("../assets/contributions.png"),
-            desc:"A minimalist web browser with many features which uses a fraction of the memory of others. "
-        }
+            desc:"Wrote a few changes to various projects on github."
+        },
     ]
     export default {
         name: 'Projects',
@@ -95,8 +93,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 50%;
-        height: 50%;
+        width: 70%;
+        height: 70%;
         transform: translate(-50%,-50%);
         text-align: center;
         overflow-y:auto;
@@ -104,7 +102,7 @@
     #scrollbarHide{
         position: absolute;
         top: 50%;
-        left: 50%;
+        left: 60%;
         width: 5%;
         height: 100%;
         transform: translate(400%,-50%);

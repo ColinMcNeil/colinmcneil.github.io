@@ -77,6 +77,9 @@
         </svg>
       </transition>
       <transition name="fade">
+      <div v-show="help" id="tap">tap/hover me.</div>
+      </transition>
+      <transition name="fade">
         <h1 id="loadingText" v-if="loading">loading.</h1>
       </transition>
   </div>
@@ -89,7 +92,7 @@
     name: 'Title',
     data () {
       return {
-        ready: false, loading: false, loaded: false
+        ready: false, loading: false, loaded: false, help:false
       }
     },
     methods: {
@@ -105,6 +108,8 @@
       hover () {
           this.animating = true
           this.toName()
+          clearTimeout(this.helper)
+          this.helper=setTimeout(()=>{this.help=true},2000);
       },
       unHover () {
           this.animating = true
@@ -123,6 +128,7 @@
       this.owl = Snap.select('#owl')
       this.namePoints = myname.node.getAttribute('d')
       this.owlPoints = this.owl.node.getAttribute('d')
+      this.helper=setTimeout(()=>{this.help=true},2000);
     }
   }
 </script>
@@ -145,6 +151,14 @@
   }
   #title:hover #owl{
     transform: translate(484px,0px);
+  }
+  #tap{
+    top: 80%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    font-family: "Wire One";
+    font-size: 2em;
   }
   #myname{
     display: none;

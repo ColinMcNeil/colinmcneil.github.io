@@ -38,7 +38,7 @@
           view: '<span>menu</span>', 
           expanded:false,
           menuClickable:this.skip,
-          hoveredIndex:-2,
+          hoveredIndex:this.skip?0:-2,
           hidden:false,
         }
     },
