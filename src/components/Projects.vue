@@ -1,25 +1,25 @@
 <template>
     <div>
-        <img id="up" class="arrow" src="../assets/arrow.svg"/>
         <div id="projects">
             <transition-group name="fade">
             <div class= "project" v-for="project in projects" v-bind:key="project.name">
                 <h2>{{project.name}}</h2>
-                <a :href="project.url" target="_blank">{{project.url}}</a>
-                <div class="imgContainer">
+                <div class="imgContainer" v-on:mouseover="projectHover" v-on:mouseleave="projectLeave" v-on:click="projectClick(project.url)">
                     <img v-bind:src="project.icon"/>
                     <div class="desc">{{project.desc}}</div>
                 </div>
-                <div v-if="project.index==0" id="meta">tap/hover image</div>
-                <div id="count">{{project.index}}|{{projects.length-1}}</div>
+                <div class="count">{{project.index}}|{{projects.length-1}}</div>
+                <div v-if="project.index==0" class="meta">tap/hover image</div>
                 
-                <div v-if="project.index==0" id="meta">arrays start at 0</div>
+                
+                <div v-if="project.index==0" class="meta"> arrays start at 0</div>
+                <div v-if="project.index==0" class="arrow meta ">↓</div>
             </div>
             </transition-group>
         </div>
         <div id="scrollbarHide"></div>
         <router-link id="back" to="/menu">back</router-link>
-        <img id="down" class="arrow" src="../assets/arrow.svg"/>
+        
     </div>
 </template>
 
@@ -47,7 +47,7 @@
             name:"Aspect Ratio Tools",
             url:"https://github.com/colinmcneil/aspect-ratio-tools",
             icon:require("../assets/artools.png"),
-            desc:"An NPM which offers an extensive toolset for working with images and displays of differing aspect ratios."
+            desc:"An NPM package which offers an extensive toolset for working with images and displays of differing aspect ratios."
         },
 
         {
@@ -65,9 +65,22 @@
             }
             return { 
                 projects:projects,
+                hovered:false,
             }
         },
-
+        methods:{
+            projectHover(){
+                this.hovered=true;
+            },
+            projectLeave(){
+                this.hovered=false;
+            },
+            projectClick(url){
+                if(this.hovered){
+                    window.open(url,'_blank')
+                }
+            }
+        }
     }
 </script>
 
@@ -98,9 +111,9 @@
     }
     .project{
         position: relative;
-        height: 100%;
         display: flex;
         flex-direction: column;
+        margin-bottom: 10%;
     }
     .project *{
         margin-top: 10px;
@@ -108,16 +121,15 @@
     .project h2{
         font-family: "Wire One";
         margin-bottom: 5px;
+        font-size: 2em;
     }
     .project a{
-        word-wrap: break-word;
-        font-size: 1rem;
-        padding: 0 25% 0 25%;
+        text-decoration: none;
     }
     .project .imgContainer{
         width: 50%;
         transform: translateX(50%);
-        height: 300px;
+        cursor: pointer;
     }
     .project .imgContainer img{
         max-height: 90%;
@@ -129,28 +141,18 @@
         font-size:1rem;
         width: 100%;
         opacity: 0;
-
+        position: absolute;
+        font-family: "Consolas";
+        top: 0px;
+        transform: translateY(8em);
     }
     .project .imgContainer:hover .desc{
+        display: block;
         opacity: 1;
-        transform: translateY(-8em)
+        transform: translateY(1em);
     }
     .project .imgContainer:hover img{
         opacity: 0.1;
-    }
-    .arrow{
-        width: 3em;
-        position: absolute;
-        left: 50%;
-
-    }
-    #up{
-        transform: translateX(-400%);
-        top:20%;
-    }
-    #down{
-        transform: translateX(300%) rotate(180deg);
-        top: 70%;
     }
     #back{
         position: absolute;
@@ -169,8 +171,18 @@
         font-weight: bold;
         opacity: 1;
     }
-    #meta{
+    .meta{
         font-size: 0.5em;
+        height: 0.5em;
+        margin: 0.5em;
+    }
+    .arrow{
+        font-size: 1em;
+    }
+    .count{
+        font-famile:"Consolas";
+        font-size: 1em;
+        margin: 0;
     }
     .fade-enter-active, .fade-leave-active {
         transition: opacity .3s ease;

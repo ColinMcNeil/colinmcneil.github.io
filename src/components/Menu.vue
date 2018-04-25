@@ -7,10 +7,10 @@
       </transition>
       <transition name="fade-slow">
       <div class="menuItems" v-bind:class="{expandedItems:expanded,}" v-if="loaded">
-        <a id="resume" class="menuItem" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(0)">resume</a>
-        <a id="contact" class="menuItem" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(1)">contact</a>
-        <a id="projects" class="menuItem" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(2)">projects</a>
-        <a v-if="expanded" id="back" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
+        <a id="resume" class="menuItem" v-on:mouseover="mouseOver(0)" v-on:mouseleave="mouseLeave" v-on:click="loadView(0)">resume</a>
+        <a id="contact" class="menuItem" v-on:mouseover="mouseOver(1)" v-on:mouseleave="mouseLeave" v-on:click="loadView(1)">contact</a>
+        <a id="projects" class="menuItem" v-on:mouseover="mouseOver(2)" v-on:mouseleave="mouseLeave" v-on:click="loadView(2)">projects</a>
+        <a v-if="expanded" id="back" v-on:mouseover="mouseOver(-1)" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
       </div>
       </transition>
       <div v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">
@@ -38,6 +38,7 @@
           view: '<span>menu</span>', 
           expanded:false,
           menuClickable:this.skip,
+          hoveredIndex:-2,
           hidden:false,
         }
     },
@@ -54,7 +55,7 @@
             })
         },
         loadView (view) {
-          if(!this.menuClickable) return
+          if(!this.menuClickable || this.hoveredIndex!=view) return
           this.menuClickable=false;
           this.expanded=true;
           if (view === -1) {
@@ -131,16 +132,16 @@
             //
           }
         },
-        mouseOver(){
+        mouseOver(index){
           setTimeout(()=>{
             this.menuClickable=true
           },300)
+          this.hoveredIndex=index;
         },
-        mouseLeave(){
-          setTimeout(()=>{
-            this.menuClickable=false
-          },300)
-        }
+        mouseLeave(index){
+          this.menuClickable=false;
+          this.hoveredIndex=-2;
+        },
     },
     mounted () {
       
