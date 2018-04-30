@@ -155,10 +155,12 @@
   #tap{
     top: 80%;
     left:50%;
+    background-color: white;
     transform: translateX(-50%) translateY(-50%);
     position: absolute;
     font-family: "Wire One";
     font-size: 2em;
+    
   }
   #myname{
     display: none;

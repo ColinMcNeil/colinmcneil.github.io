@@ -67,10 +67,22 @@
             }
         },
         methods:{
-            projectHover(){
+            projectHover(event){
                 setTimeout(()=>{this.hovered=true;},300);
-                
+                /* clientX/Y gives the coordinates relative to the viewport in CSS pixels.
+                console.log(event.clientX); // x coordinate
+                console.log(event.clientY); // y coordinate
+
+                // pageX/Y gives the coordinates relative to the <html> element in CSS pixels.
+                console.log(event.pageX); 
+                console.log(event.pagey); 
+
+                // screenX/Y gives the coordinates relative to the screen in device pixels.
+                console.log(event.screenX);
+                console.log(event.screenY);*/
             },
+                
+    
             projectLeave(){
                 this.hovered=false;
             },
@@ -78,7 +90,7 @@
                 if(this.hovered){
                     window.open(url,'_blank')
                 }
-            }
+            },
         }
     }
 </script>
@@ -163,12 +175,13 @@
         font-family: "Wire One";
         font-size: 2em;
         transition: ease-in-out 0.3s all;
-        opacity: 0.5;
+        background-color: white;
+        padding: 5px;
     }
     #back:hover{
         cursor: pointer;
-        font-weight: bold;
         opacity: 1;
+        padding: 10px;
     }
     .meta{
         font-size: 0.5em;

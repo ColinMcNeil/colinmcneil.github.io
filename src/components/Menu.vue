@@ -306,7 +306,8 @@
     color:rgb(65, 151, 77);
   }
   .hire:hover{
-
+    font-size:3em;
+    transform: translate(-50%,20%);
   }
 
   .fade-slow-enter-active, .fade-slow-leave-active {
