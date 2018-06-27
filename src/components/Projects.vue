@@ -17,89 +17,85 @@
         </div>
         <div id="scrollbarHide"></div>
         <router-link id="back" to="/menu">back</router-link>
-        
+
     </div>
 </template>
 
 <script>
-    let projects=[
+    let projects = [
         {
-            name:"SquaredLabs.uconn.edu",
-            url:"https://github.com/squaredlabs/squaredlabs.uconn.edu",
-            icon:require("../assets/squaredlabs.png"),
-            desc:"Developed Connect & Lab pages, as well as many other components, for the SquaredLabs site.",
+            name: 'SquaredLabs.uconn.edu',
+            url: 'https://github.com/squaredlabs/squaredlabs.uconn.edu',
+            icon: require('../assets/squaredlabs.png'),
+            desc: 'Developed Connect & Lab pages, as well as many other components, for the SquaredLabs site.'
         },
         {
-            name:"Turtle Browser",
-            url:"https://github.com/colinmcneil/turtle-browser",
-            icon:"https://camo.githubusercontent.com/e7cf27340ca831dff7a8f9d5d5f1df6fa621fce7/687474703a2f2f672e7265636f726469742e636f2f57376c365379314d446f2e676966",
-            desc:"A minimalist web browser with many features which uses a fraction of the memory of others. ",
+            name: 'Turtle Browser',
+            url: 'https://github.com/colinmcneil/turtle-browser',
+            icon: 'https://camo.githubusercontent.com/e7cf27340ca831dff7a8f9d5d5f1df6fa621fce7/687474703a2f2f672e7265636f726469742e636f2f57376c365379314d446f2e676966',
+            desc: 'A minimalist web browser with many features which uses a fraction of the memory of others. '
         },
         {
-            name:"Geographic Survey App",
-            url:"https://www.engr.uconn.edu/pdf/UCONN-Senior-Design-2018-Web.pdf",
-            icon:require("../assets/sdp.png"),
-            desc:"Developed the backend and web portal for a Geographic Survey App for UCONN's School of Agriculture. ",
+            name: 'Geographic Survey App',
+            url: 'https://www.engr.uconn.edu/pdf/UCONN-Senior-Design-2018-Web.pdf',
+            icon: require('../assets/sdp.png'),
+            desc: "Developed the backend and web portal for a Geographic Survey App for UCONN's School of Agriculture. "
         },
         {
-            name:"Aspect Ratio Tools",
-            url:"https://github.com/colinmcneil/aspect-ratio-tools",
-            icon:require("../assets/artools.png"),
-            desc:"An NPM package which offers an extensive toolset for working with images and displays of differing aspect ratios."
+            name: 'Aspect Ratio Tools',
+            url: 'https://github.com/colinmcneil/aspect-ratio-tools',
+            icon: require('../assets/artools.png'),
+            desc: 'An NPM package which offers an extensive toolset for working with images and displays of differing aspect ratios.'
         },
 
         {
-            name:"Open Source Contributions",
-            url:"https://github.com/colinmcneil/",
-            icon:require("../assets/contributions.png"),
-            desc:"Wrote a few changes to various projects on github."
-        },
+            name: 'Open Source Contributions',
+            url: 'https://github.com/colinmcneil/',
+            icon: require('../assets/contributions.png'),
+            desc: 'Wrote a few changes to various projects on github.'
+        }
     ]
     export default {
         name: 'Projects',
         data () {
-            for(let i =0;i<projects.length;i++){
-                projects[i].index=i;
+            for (let i = 0; i < projects.length; i++) {
+                projects[i].index = i
             }
-            return { 
-                projects:projects,
-                hovered:false,
+            return {
+                projects: projects,
+                hovered: false
             }
         },
-        methods:{
-            projectHover(event){
-                setTimeout(()=>{this.hovered=true;},300);
+        methods: {
+            projectHover (event) {
+                setTimeout(() => { this.hovered = true }, 300)
                 /* clientX/Y gives the coordinates relative to the viewport in CSS pixels.
                 console.log(event.clientX); // x coordinate
                 console.log(event.clientY); // y coordinate
 
                 // pageX/Y gives the coordinates relative to the <html> element in CSS pixels.
-                console.log(event.pageX); 
-                console.log(event.pagey); 
+                console.log(event.pageX);
+                console.log(event.pagey);
 
                 // screenX/Y gives the coordinates relative to the screen in device pixels.
                 console.log(event.screenX);
-                console.log(event.screenY);*/
+                console.log(event.screenY); */
             },
-                
-    
-            projectLeave(){
-                this.hovered=false;
+
+            projectLeave () {
+                this.hovered = false
             },
-            projectClick(url){
-                if(this.hovered){
-                    window.open(url,'_blank')
+            projectClick (url) {
+                if (this.hovered) {
+                    window.open(url, '_blank')
                 }
-            },
+            }
         }
     }
 </script>
 
-
-
-
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Wire+One');
+  @import url('https://fonts.googleapis.com/css?family=Poiret+One');
     #projects{
         font-family: "Consolas";
         position: absolute;
@@ -130,7 +126,7 @@
         margin-top: 10px;
     }
     .project h2{
-        font-family: "Wire One";
+        font-family: "Poiret One";
         margin-bottom: 5px;
         font-size: 2em;
     }
@@ -172,7 +168,7 @@
         transform: translate(-50%, -50%);
         text-decoration: none;
         color: black;
-        font-family: "Wire One";
+        font-family: "Poiret One";
         font-size: 2em;
         transition: ease-in-out 0.3s all;
         background-color: white;

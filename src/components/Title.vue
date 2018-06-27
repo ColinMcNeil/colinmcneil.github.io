@@ -77,7 +77,7 @@
         </svg>
       </transition>
       <transition name="fade">
-      <div v-show="help" id="tap">tap/hover me.</div>
+      <div v-show="help" id="tap">Click the owl.</div>
       </transition>
       <transition name="fade">
         <h1 id="loadingText" v-if="loading">loading.</h1>
@@ -92,7 +92,7 @@
     name: 'Title',
     data () {
       return {
-        ready: false, loading: false, loaded: false, help:false
+        ready: false, loading: false, loaded: false, help: false
       }
     },
     methods: {
@@ -103,13 +103,14 @@
       },
       toName () {
         if (this.animating) this.owl.stop()
-        this.owl.animate({ d: this.namePoints }, 1200, mina.linear(), () => { this.ready = true })
+        this.ready = true
+        this.owl.animate({ d: this.namePoints }, 1200, mina.linear())
       },
       hover () {
           this.animating = true
           this.toName()
           clearTimeout(this.helper)
-          this.helper=setTimeout(()=>{this.help=true},2000);
+          this.helper = setTimeout(() => { this.help = true }, 2000)
       },
       unHover () {
           this.animating = true
@@ -128,14 +129,14 @@
       this.owl = Snap.select('#owl')
       this.namePoints = myname.node.getAttribute('d')
       this.owlPoints = this.owl.node.getAttribute('d')
-      this.helper=setTimeout(()=>{this.help=true},2000);
+      this.helper = setTimeout(() => { this.help = true }, 2000)
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Wire+One');
+  @import url('https://fonts.googleapis.com/css?family=Poiret+One');
   #title{
     height: 350px;
     top: 50%;
@@ -158,9 +159,9 @@
     background-color: white;
     transform: translateX(-50%) translateY(-50%);
     position: absolute;
-    font-family: "Wire One";
+    font-family: "Poiret One";
     font-size: 2em;
-    
+
   }
   #myname{
     display: none;

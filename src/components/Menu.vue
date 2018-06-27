@@ -13,10 +13,13 @@
         <a v-if="expanded" id="back" v-on:mouseover="mouseOver(-1)" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
       </div>
       </transition>
-      <div v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver(3)" v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">
-        hire
+      <div class="menuItems lowerMenu" v-bind:class="{expandedItems:expanded,}" v-if="loaded">
+        <a v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver(3)"
+        v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">hire</a>
+        <a id="openSource" class="menuItem" v-on:mouseover="mouseOver(0)"
+        v-on:mouseleave="mouseLeave" v-on:click="loadView(4)">open source</a>
       </div>
-      
+
     </div>
 </template>
 
@@ -24,62 +27,62 @@
   import showdown from 'showdown'
   export default {
     name: 'Menu',
-    props:['skip'],
+    props: ['skip'],
     data () {
       this.getResume()
-      if(this.skip){
-          setTimeout(()=>{
+      if (this.skip) {
+          setTimeout(() => {
             this.loadView(0)
-          },500)
+          }, 500)
         }
-        return { 
-          loaded: true, 
-          resume: 'Loading...', 
-          view: '<span>menu</span>', 
-          expanded:false,
-          menuClickable:this.skip,
-          hoveredIndex:this.skip?0:-2,
-          hidden:false,
+        return {
+          loaded: true,
+          resume: 'Loading...',
+          view: '<span>menu</span>',
+          expanded: false,
+          menuClickable: this.skip,
+          hoveredIndex: this.skip ? 0 : -2,
+          hidden: false
         }
     },
     methods: {
         getResume () {
             let converter = new showdown.Converter()
-            let url = 'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece2'+
+            let url = 'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece2' +
             '9677103f36e5f5e/raw/a260fccab911db7d5b26e95d7c66d0fedddf7f65/Resume.md'
             this.$http.get(url).then(response => {
                 let data = response.body
-                this.resumeHTML=converter.makeHtml(data);
+                this.resumeHTML = converter.makeHtml(data)
             }, response => {
                 console.error(JSON.stringify(response))
             })
         },
         loadView (view) {
-          if(!this.menuClickable || this.hoveredIndex!=view) return
-          this.menuClickable=false;
-          this.expanded=true;
+          if (!this.menuClickable || this.hoveredIndex !== view) return
+          this.menuClickable = false
+          this.expanded = true
           if (view === -1) {
-            this.hidden=true;
+            this.hidden = true
             this.expanded = false
-            setTimeout(()=>{
-              this.hidden=false;
-            },300)
-            setTimeout(()=>{
+            setTimeout(() => {
+              this.hidden = false
+            }, 300)
+            setTimeout(() => {
               this.view = `<span>menu</span>`
-            },300)
+            }, 300)
             return
           }
-          
-          this.menuClickable=false;
+
+          this.menuClickable = false
           if (view === 0) {
-            setTimeout(()=>{
+            setTimeout(() => {
               this.view = `<div id="resumeContainer">${this.resumeHTML}</div>`
-            },300)
+            }, 300)
             //
           }
           if (view === 1) {
-            setTimeout(()=>{
-              this.view = 
+            setTimeout(() => {
+              this.view =
               `<div id="contactContainer">
                 <h1>contact</h1>
                 <div class="hireContainerI">
@@ -97,18 +100,17 @@
                   <p>Andover, CT</p>
                 </div>
               </div>`
-              
-            },300)
+            }, 300)
             //
           }
           if (view === 2) {
-            setTimeout(()=>{
+            setTimeout(() => {
               this.$router.push('projects')
-            },300)
+            }, 300)
             //
           }
           if (view === 3) {
-            setTimeout(()=>{
+            setTimeout(() => {
               this.view = `<div id="hireContainer">
                 <h1>need a site?</h1>
                 <p><strong>I can make it.</strong></p>
@@ -128,40 +130,38 @@
                   <p>30$/hr</p>
                 </div>
               </div>`
-            },300)
+            }, 300)
             //
           }
         },
-        mouseOver(index){
-          setTimeout(()=>{
-            this.menuClickable=true
-          },300)
-          this.hoveredIndex=index;
+        mouseOver (index) {
+          setTimeout(() => {
+            this.menuClickable = true
+          }, 300)
+          this.hoveredIndex = index
         },
-        mouseLeave(index){
-          this.menuClickable=false;
-          this.hoveredIndex=-2;
-        },
+        mouseLeave (index) {
+          this.menuClickable = false
+          this.hoveredIndex = -2
+        }
     },
     mounted () {
-      
-      
-      
+
     }
   }
 </script>
 
-
 <style>
-  
+
+  @import url('https://fonts.googleapis.com/css?family=Poiret+One');
   .menuTitle{
-    font-family: "Wire One";
+    font-family: "Poiret One";
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-110%);
     font-size: 10em;
-    width:15rem;
+    width:25rem;
     border: solid black 1px;
     margin: 0;
     text-align: center;
@@ -197,7 +197,7 @@
   .expanded:hover{
     border:none;
   }
-  
+
   #resumeContainer{
     flex: 0 1 800px;
     overflow-y: auto;
@@ -217,7 +217,7 @@
     font-size: 3em;
     text-align: center;
   }
-  
+
   .hireContainerI{
     border:solid black 2px;
     margin:10px;
@@ -227,7 +227,7 @@
 </style>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Wire+One');
+  @import url('https://fonts.googleapis.com/css?family=Poiret+One');
   #viewContainer{
     width:100%;
     height: 100%;
@@ -238,34 +238,39 @@
   .expandedView{
     height: auto;
   }
-  
+
   .menuItems{
-    font-family: "Wire One";
-    top: 50%;
+    font-family: "Poiret One";
+    top: 42%;
     left: 50%;
     position: fixed;
     transform: translate(-50%,-50%);
     transition: ease 0.3s all;
     display: flex;
     justify-content: space-between;
-    width:15rem;
+    width: 25rem;
+  }
+
+  .lowerMenu{
+    top: 50%;
   }
 
   .expandedItems{
-    font-family: "Wire One";
+    font-family: "Poiret One";
     top: 10%;
-    left: 80px;
+    left: 7em;
     position: fixed;
     display: flex;
     justify-content: space-between;
     flex-direction:column;
-    width: 10rem;
+    width: 15rem;
     height: 5rem;
   }
   .menuItem{
     box-shadow: inset 0px 0px 0px 5em black;
     transition: ease-in-out all 0.3s;
     width: 4em;
+    font-size: 2em;
     text-align: center;
     display: block;
     -webkit-touch-callout: none;
@@ -276,7 +281,7 @@
     user-select: none;
   }
   .menuItem:hover{
-    font-size: 2em;
+    font-size: 3em;
     box-shadow: none;
     cursor: pointer;
   }
@@ -288,26 +293,24 @@
     color: rgb(65, 151, 77);
   }
   #back:hover{
-    font-size: 2em;
+    font-size: 3em;
     box-shadow: none;
     cursor: pointer;
     color:black;
   }
   .hire{
-    font-size:2em;
-    width:15rem;
-    font-family: "Wire One";
-    top: 50%;
-    left: 50%;
-    position: fixed;
-    transform: translate(-50%,50%);
-    transition: ease 0.3s all;
     box-shadow: inset 0px 0px 0px 5em rgb(65, 151, 77);
     color:rgb(65, 151, 77);
   }
-  .hire:hover{
-    font-size:3em;
-    transform: translate(-50%,20%);
+
+  #openSource{
+    width: 66%;
+    box-shadow: inset 0px 0px 0px 5em rgb(65, 65, 65);
+    color: rgb(65,65,65);
+  }
+  #openSource:hover{
+    width: 73%;
+    box-shadow: none;
   }
 
   .fade-slow-enter-active, .fade-slow-leave-active {
