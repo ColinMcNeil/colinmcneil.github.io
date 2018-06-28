@@ -1,10 +1,13 @@
 <template>
     <div id="page">
         <div>
-          <transition-group name="tileTransition" id="grid">
-            <div v-for="contribution in contributions" :key="contribution.url" class="gridTile" v-if="amExpanded(contribution) || expanded===''"
-            v-on:click="expanded=contribution.url" v-bind:class="{expanded:amExpanded(contribution)}">
-                <a v-if="contribution.url.length>1" :href="contribution.url" class="title"><h1 class="titleText">{{contribution.name}}</h1></a>
+          <transition-group name="tileTransition" id="grid" tag="div">
+            <div v-for="contribution in contributions" :key="contribution.url"
+            class="gridTile" v-if="amExpanded(contribution) || expanded===''"
+            v-on:click="expanded=contribution.url"
+            v-bind:class="{expanded:amExpanded(contribution), placeholder:contribution.url.length<=1}">
+                <a v-if="contribution.url.length>1"
+                  :href="contribution.url" class="title"><h1 class="titleText">{{contribution.name}}</h1></a>
                 <h1 v-else class="titleText">{{contribution.name}}</h1>
 
                 <div v-if="amExpanded(contribution)" class="desc"><h2>Description</h2> {{contribution.desc}}</div>
@@ -108,7 +111,7 @@
   }
   #grid {
     max-width: 50rem;
-    max-height: 50rem;
+    max-height: 90%;
     width: 90vw;
     height: 90vw;
     top:50%;
@@ -118,7 +121,7 @@
     min-width: 200px;
     min-height: 200px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     font-family:"Poiret One";
     z-index: 1;
@@ -132,7 +135,9 @@
   }
 
   .gridTile {
-    flex: 0 1 30%;
+    flex: 1 1 30%;
+    margin-right:3%;
+    margin-top:3%;
     min-height: 30%;
     height: 30%;
     border: solid black 1px;
@@ -141,20 +146,40 @@
     transition: ease 0.3s all;
     z-index: 1;
     background-color: white;
+    display: flex;
+    flex-direction: column;
   }
 
   .gridTile:hover {
     cursor: pointer;
-    background-color: rgba(175, 143, 207, 0.473);
+    background-color: rgba(225, 195, 255, 0.829);
+    transform: scale(1.1);
+    border-radius: 8px;
+    border: none;
   }
 
-  .expanded {
+  .gridTile.expanded {
     flex-basis: 100%;
+    width:100%;
     min-height: 100%;
     align-self: center;
+    justify-self: center;
     order: 1;
     z-index:2;
-
+    margin:0;
+    position: absolute;
+    border: none;
+  }
+  .expanded:hover{
+    cursor: default;
+    background-color: white;
+    transform: none;
+    border-radius: 3px;
+    border: none;
+  }
+  .placeholder{
+    opacity: 0.7;
+    pointer-events: none;
   }
 
   .title {

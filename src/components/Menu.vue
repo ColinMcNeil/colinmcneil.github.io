@@ -328,4 +328,20 @@
   .fade-slow-enter, .fade-slow-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
   }
+  @media only screen and (max-width: 600px) {
+    .menuTitle {
+        font-size: 5em;
+        width: 15rem;
+    }
+    .menuItems {
+      font-size: 0.5em;
+      width: 15rem;
+    }
+    .lowerMenu{
+      top: 47%;
+    }
+    .menuItem{
+      font-size: 1.2rem;
+    }
+  }
 </style>

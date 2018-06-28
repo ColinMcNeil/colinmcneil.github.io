@@ -103,7 +103,7 @@
       },
       toName () {
         if (this.animating) this.owl.stop()
-        this.ready = true
+        setTimeout(() => { this.ready = true }, 300)
         this.owl.animate({ d: this.namePoints }, 1200, mina.linear())
       },
       hover () {
