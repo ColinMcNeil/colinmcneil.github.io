@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Title from '@/components/Title.vue'
 import Menu from '@/components/Menu.vue'
 import Projects from '@/components/Projects.vue'
+import ContributionsGrid from '@/components/ContributionsGrid.vue'
 import VueResource from 'vue-resource'
 
 Vue.use(Router)
@@ -25,6 +26,11 @@ const router = new Router({
       path: '/projects',
       name: 'Projects',
       component: Projects
+    },
+    {
+      path: '/contributions',
+      name: 'Contributions',
+      component: ContributionsGrid
     }
   ]
 })

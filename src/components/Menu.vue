@@ -16,7 +16,7 @@
       <div class="menuItems lowerMenu" v-bind:class="{expandedItems:expanded,}" v-if="loaded">
         <a v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver(3)"
         v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">hire</a>
-        <a id="openSource" class="menuItem" v-on:mouseover="mouseOver(0)"
+        <a id="openSource" class="menuItem" v-on:mouseover="mouseOver(4)"
         v-on:mouseleave="mouseLeave" v-on:click="loadView(4)">open source</a>
       </div>
 
@@ -132,6 +132,12 @@
               </div>`
             }, 300)
             //
+          }
+          if (view === 4) {
+            console.log('derp')
+            setTimeout(() => {
+              this.$router.push('contributions')
+            }, 300)
           }
         },
         mouseOver (index) {
