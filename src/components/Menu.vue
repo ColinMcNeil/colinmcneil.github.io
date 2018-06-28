@@ -222,6 +222,7 @@
   #hireContainer{
     font-size: 3em;
     text-align: center;
+    width: 100%;
   }
 
   .hireContainerI{
@@ -229,6 +230,12 @@
     margin:10px;
     padding: 5px;
     font-weight: 500;
+  }
+  @media only screen and (max-width: 600px){
+
+    #hireContainer {
+      font-size: 1rem;
+    }
   }
 </style>
 
@@ -328,7 +335,7 @@
   .fade-slow-enter, .fade-slow-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 600px){
     .menuTitle {
         font-size: 5em;
         width: 15rem;
@@ -342,6 +349,20 @@
     }
     .menuItem{
       font-size: 1.2rem;
+    }
+    .expandedItems{
+      font-size: 2em;
+      left: 3.5em;
+      opacity: 0.7;
+    }
+    .expandedItems .menuItem{
+      font-size: 1.2em;
+    }
+    .expandedItems .menuItem:hover{
+      font-size: 1.5em;
+    }
+    #back:hover{
+      font-size: 1.5em;
     }
   }
 </style>
