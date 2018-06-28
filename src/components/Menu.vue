@@ -38,7 +38,7 @@
         return {
           loaded: true,
           resume: 'Loading...',
-          view: '<span>menu</span>',
+          view: '<span>stuff</span>',
           expanded: false,
           menuClickable: this.skip,
           hoveredIndex: this.skip ? 0 : -2,
@@ -49,7 +49,7 @@
         getResume () {
             let converter = new showdown.Converter()
             let url = 'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece2' +
-            '9677103f36e5f5e/raw/a260fccab911db7d5b26e95d7c66d0fedddf7f65/Resume.md'
+            '9677103f36e5f5e/raw/Resume.md'
             this.$http.get(url).then(response => {
                 let data = response.body
                 this.resumeHTML = converter.makeHtml(data)
@@ -68,7 +68,7 @@
               this.hidden = false
             }, 300)
             setTimeout(() => {
-              this.view = `<span>menu</span>`
+              this.view = `<span>stuff</span>`
             }, 300)
             return
           }
@@ -311,6 +311,9 @@
   #openSource:hover{
     width: 73%;
     box-shadow: none;
+  }
+  .expandedItems.lowerMenu{
+    display: none;
   }
 
   .fade-slow-enter-active, .fade-slow-leave-active {
