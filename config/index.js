@@ -50,7 +50,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../'),
     assetsSubDirectory: './static',
-    assetsPublicPath: '/Personal-Website-Redesign/',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps
