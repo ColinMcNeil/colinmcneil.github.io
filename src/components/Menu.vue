@@ -2,22 +2,24 @@
   <div id="menu">
       <transition name="fade">
       <div id="viewContainer" v-bind:class="{expandedView:expanded}" v-if="loaded" >
-        <h1 class="menuTitle" v-bind:class="{expanded:expanded,hidden:hidden}" v-html="view"></h1>
+        <h1 class="menuTitle" v-bind:class="{expanded:expanded,hidden:hidden,expandedMenu:expandedMenu}" v-html="view"></h1>
       </div>
       </transition>
+      <div class="menuItems" v-on:mouseover="expandedMenu=true" v-on:mouseleave="expandedMenu=false">
       <transition name="fade-slow">
-      <div class="menuItems" v-bind:class="{expandedItems:expanded,}" v-if="loaded">
+      <div class="menuBar" v-bind:class="{expandedItems:expanded,expandedMenu:expandedMenu}" v-if="loaded">
         <a id="resume" class="menuItem" v-on:mouseover="mouseOver(0)" v-on:mouseleave="mouseLeave" v-on:click="loadView(0)">resume</a>
         <a id="contact" class="menuItem" v-on:mouseover="mouseOver(1)" v-on:mouseleave="mouseLeave" v-on:click="loadView(1)">contact</a>
         <a id="projects" class="menuItem" v-on:mouseover="mouseOver(2)" v-on:mouseleave="mouseLeave" v-on:click="loadView(2)">projects</a>
         <a v-if="expanded" id="back" v-on:mouseover="mouseOver(-1)" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
       </div>
       </transition>
-      <div class="menuItems lowerMenu" v-bind:class="{expandedItems:expanded,}" v-if="loaded">
+      <div class="menuBar lowerMenu" v-bind:class="{expandedItems:expanded,expandedMenu:expandedMenu}" v-if="loaded">
         <a v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver(3)"
         v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">hire</a>
         <a id="openSource" class="menuItem" v-on:mouseover="mouseOver(4)"
         v-on:mouseleave="mouseLeave" v-on:click="loadView(4)">open source</a>
+      </div>
       </div>
 
     </div>
@@ -38,11 +40,12 @@
         return {
           loaded: true,
           resume: 'Loading...',
-          view: '<span>stuff</span>',
+          view: '<span class="defaultMenu">my stuff.</span>',
           expanded: false,
           menuClickable: this.skip,
           hoveredIndex: this.skip ? 0 : -2,
-          hidden: false
+          hidden: false,
+          expandedMenu: false
         }
     },
     methods: {
@@ -68,7 +71,7 @@
               this.hidden = false
             }, 300)
             setTimeout(() => {
-              this.view = `<span>stuff</span>`
+              this.view = `<span class="defaultMenu">my stuff.</span>`
             }, 300)
             return
           }
@@ -163,16 +166,18 @@
   .menuTitle{
     font-family: "Poiret One";
     position: absolute;
-    top: 40%;
+    top: 38%;
     left: 50%;
     transform: translate(-50%,-110%);
-    font-size: 10em;
-    width:25rem;
-    border: solid black 1px;
+    font-size: 5em;
+    width:calc(25rem + 24px);
+    border: solid black 3px;
+    border-bottom: none;
     margin: 0;
     text-align: center;
     box-sizing: border-box;
-    transition: ease-in-out all 0.3s;
+    padding-bottom: 10px;
+    transition: ease all 0.3s;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -180,9 +185,13 @@
     -ms-user-select: none;
     user-select: none;
   }
-  .menuTitle:hover{
-    border: black dashed 1px;
+  .expandedMenu{
+    /* width:30rem; */
+    width:calc(30rem + 24px);
+    top: 35%;
+
   }
+
   .hidden{
     transform:translate(-50%,-1000%);
   }
@@ -241,6 +250,7 @@
 
 <style scoped>
   @import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
   #viewContainer{
     width:100%;
     height: 100%;
@@ -251,21 +261,34 @@
   .expandedView{
     height: auto;
   }
-
   .menuItems{
-    font-family: "Poiret One";
-    top: 42%;
-    left: 50%;
+    display:flex;
+    flex-direction: column;
     position: fixed;
+    top: calc(44% + 20px);
+    left: 50%;
     transform: translate(-50%,-50%);
+    border: solid black 3px;
+    border-top: none;
+    padding: 10px;
+  }
+  .menuBar{
+    font-family: "Poiret One";
     transition: ease 0.3s all;
     display: flex;
     justify-content: space-between;
     width: 25rem;
-  }
 
+  }
+  .menuItems:hover .menuBar{
+    width: 30rem;
+  }
   .lowerMenu{
-    top: 50%;
+    margin-top: 20px;
+  }
+  .expandedMenu .lowerMenu{
+    top: 55%;
+
   }
 
   .expandedItems{
@@ -337,12 +360,18 @@
   }
   @media only screen and (max-width: 600px){
     .menuTitle {
-        font-size: 5em;
-        width: 15rem;
+        font-size: 3em;
+        width: calc(15rem + 24px);
     }
-    .menuItems {
+    .expandedMenu{
+      width: calc(20rem + 24px);
+    }
+    .menuBar {
       font-size: 0.5em;
       width: 15rem;
+    }
+    .menuItems:hover .menuBar{
+      width: 20rem;
     }
     .lowerMenu{
       top: 47%;
