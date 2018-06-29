@@ -5,7 +5,8 @@
         <h1 class="menuTitle" v-bind:class="{expanded:expanded,hidden:hidden,expandedMenu:expandedMenu}" v-html="view"></h1>
       </div>
       </transition>
-      <div class="menuItems" v-on:mouseover="expandedMenu=true" v-on:mouseleave="expandedMenu=false">
+      <div class="menuItems" v-bind:class="{expandedItems:expanded}"
+      v-on:mouseover="expandedMenu=true" v-on:mouseleave="expandedMenu=false">
       <transition name="fade-slow">
       <div class="menuBar" v-bind:class="{expandedItems:expanded,expandedMenu:expandedMenu}" v-if="loaded">
         <a id="resume" class="menuItem" v-on:mouseover="mouseOver(0)" v-on:mouseleave="mouseLeave" v-on:click="loadView(0)">resume</a>
@@ -294,13 +295,14 @@
   .expandedItems{
     font-family: "Poiret One";
     top: 10%;
-    left: 7em;
+    left: 4em;
     position: fixed;
     display: flex;
     justify-content: space-between;
     flex-direction:column;
     width: 15rem;
     height: 5rem;
+    border: none;
   }
   .menuItem{
     box-shadow: inset 0px 0px 0px 5em black;
@@ -363,6 +365,10 @@
         font-size: 3em;
         width: calc(15rem + 24px);
     }
+    .menuTitle.expanded{
+      font-size: 1em;
+      width: 99%;
+    }
     .expandedMenu{
       width: calc(20rem + 24px);
     }
@@ -380,8 +386,8 @@
       font-size: 1.2rem;
     }
     .expandedItems{
-      font-size: 2em;
-      left: 3.5em;
+      font-size: 1.5em;
+      left: 2em;
       opacity: 0.7;
     }
     .expandedItems .menuItem{
