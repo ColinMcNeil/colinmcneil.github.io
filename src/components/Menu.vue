@@ -18,8 +18,6 @@
       <div class="menuBar lowerMenu" v-bind:class="{expandedItems:expanded,expandedMenu:expandedMenu}" v-if="loaded">
         <a v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver(3)"
         v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">hire</a>
-        <a id="openSource" class="menuItem" v-on:mouseover="mouseOver(4)"
-        v-on:mouseleave="mouseLeave" v-on:click="loadView(4)">open source</a>
       </div>
       </div>
 
@@ -36,7 +34,6 @@ export default {
   name: 'Menu',
   props: ['skip'],
   async mounted () {
-    console.log('mounted')
     let converter = new showdown.Converter()
     const URL =
       'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece29677103f36e5f5e/raw/Resume.md'
@@ -68,9 +65,11 @@ export default {
       if (!this.menuClickable || this.hoveredIndex !== view) return
       this.menuClickable = false
       this.expanded = true
+      this.expandedMenu = false;
       if (view === -1) {
         this.hidden = true
         this.expanded = false
+        this.hoveredIndex = -2
         setTimeout(() => {
           this.hidden = false
         }, 300)
@@ -110,7 +109,6 @@ export default {
         setTimeout(() => {
           this.$router.push('projects')
         }, 300)
-        //
       }
       if (view === 3) {
         setTimeout(() => {
@@ -134,13 +132,6 @@ export default {
                 </div>
               </div>`
         }, 300)
-        //
-      }
-      if (view === 4) {
-        console.log('derp')
-        setTimeout(() => {
-          this.$router.push('contributions')
-        }, 300)
       }
     },
     mouseOver (index) {
@@ -159,6 +150,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Poiret+One");
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 .menuTitle {
   font-family: "Poiret One";
   position: absolute;
@@ -214,7 +206,7 @@ export default {
   position: relative;
   border: solid black 1px;
   padding: 20px;
-  font-family: "Consolas";
+  font-family: "Inconsolata";
   font-weight: 500;
   width: 100%;
   left: 0;
@@ -278,6 +270,7 @@ export default {
 }
 .lowerMenu {
   margin-top: 20px;
+  justify-content: center;
 }
 .expandedMenu .lowerMenu {
   top: 55%;
@@ -330,16 +323,6 @@ export default {
 .hire {
   box-shadow: inset 0px 0px 0px 5em rgb(65, 151, 77);
   color: rgb(65, 151, 77);
-}
-
-#openSource {
-  width: 66%;
-  box-shadow: inset 0px 0px 0px 5em rgb(65, 65, 65);
-  color: rgb(65, 65, 65);
-}
-#openSource:hover {
-  width: 73%;
-  box-shadow: none;
 }
 .expandedItems.lowerMenu {
   display: none;
