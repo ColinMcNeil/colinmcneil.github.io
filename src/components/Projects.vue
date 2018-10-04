@@ -1,8 +1,15 @@
 <template>
   <div>
     <div id="projects">
+      <h1>Projects</h1>
       <div v-show="projects==[]">Loading...</div>
       <v-min-tile-grid>
+        <v-min-tile class= "project" title="Legend">
+          
+          <div class="icon" title="Hacktoberfest PR">🎃 Hacktoberfest PR</div>
+          <div class="icon" title="Open Source Fork">👐 Open Source Fork</div>
+          <div class="icon" title="Merged PR">🔥 Merged PR</div>
+        </v-min-tile>
         <v-min-tile class= "project" v-for="project in projects" 
         v-bind:key="project.name" :title="project.name">
           <h4 class="desc">{{project.description}}</h4>
@@ -13,6 +20,7 @@
             <div><a :href="project.displayURL" target="_blank" rel="noopener">URL</a></div>
             <div class="icon" v-if="project.hacktoberfest" title="Hacktoberfest PR">🎃</div>
             <div class="icon" v-else-if="project.fork" title="Open Source Fork">👐</div>
+            <div class="icon" v-if="project.merged" title="Merged PR">🔥</div>
           </div>
         </v-min-tile>
       </v-min-tile-grid>
@@ -42,6 +50,14 @@ const myHacktoberfestRepos = [
   'sqleton',
   'Minimal-Notes'
 ]
+const myMergedRepos = [
+  'weatherapp',
+  'Minimal-Notes',
+  'tplink-cloud-api',
+  'Epiboard',
+  'Android-Messages-Sleek',
+  'rplace'
+]
 export default {
   name: "Projects",
   async mounted() {
@@ -65,7 +81,9 @@ export default {
           "github.com"
         );
         if(myHacktoberfestRepos.includes(project.name))
-        project.hacktoberfest=true
+          project.hacktoberfest=true
+        if(myMergedRepos.includes(project.name))
+          project.merged=true
         return project;
     });
   },
