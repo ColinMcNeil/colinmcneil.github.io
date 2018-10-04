@@ -11,6 +11,8 @@
             color: $store.state.theme.secondaryColor}">
             <div>{{project.size+" "}} lines</div>
             <div><a :href="project.displayURL" target="_blank" rel="noopener">URL</a></div>
+            <div class="icon" v-if="project.hacktoberfest" title="Hacktoberfest PR">🎃</div>
+            <div class="icon" v-else-if="project.fork" title="Open Source Fork">👐</div>
           </div>
         </v-min-tile>
       </v-min-tile-grid>
@@ -34,6 +36,12 @@ const mySquaredLabsRepos = [
   "illustration-webform",
   "tech-workorder-form"
 ];
+const myHacktoberfestRepos = [
+  'weatherapp',
+  'helectron',
+  'sqleton',
+  'Minimal-Notes'
+]
 export default {
   name: "Projects",
   async mounted() {
@@ -56,6 +64,8 @@ export default {
           "api.github.com/repos",
           "github.com"
         );
+        if(myHacktoberfestRepos.includes(project.name))
+        project.hacktoberfest=true
         return project;
     });
   },
@@ -137,6 +147,9 @@ export default {
   cursor: pointer;
   opacity: 1;
   padding: 10px;
+}
+.icon {
+  cursor: default;
 }
 @media only screen and (max-width: 500px) {
   #projects {
