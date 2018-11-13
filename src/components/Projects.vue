@@ -5,12 +5,12 @@
       <div v-show="projects==[]">Loading...</div>
       <v-min-tile-grid>
         <v-min-tile class= "project" title="Legend">
-          
+
           <div class="icon" title="Hacktoberfest PR">🎃 Hacktoberfest PR</div>
           <div class="icon" title="Open Source Fork">👐 Open Source Fork</div>
           <div class="icon" title="Merged PR">🔥 Merged PR</div>
         </v-min-tile>
-        <v-min-tile class= "project" v-for="project in projects" 
+        <v-min-tile class= "project" v-for="project in projects"
         v-bind:key="project.name" :title="project.name">
           <h4 class="desc">{{project.description}}</h4>
           <div class="meta" :style="{
@@ -30,20 +30,20 @@
 </template>
 
 <script>
-import { VMinTileGrid, VMinTile } from "mina-vue";
-require("es6-promise").polyfill();
-require("isomorphic-fetch");
+import { VMinTileGrid, VMinTile } from 'mina-vue'
+require('es6-promise').polyfill()
+require('isomorphic-fetch')
 
 const byDate = (a, b) => {
-  let date1 = Date.parse(a.updated_at);
-  let date2 = Date.parse(b.updated_at);
-  return date2 - date1;
-};
+  let date1 = Date.parse(a.updated_at)
+  let date2 = Date.parse(b.updated_at)
+  return date2 - date1
+}
 const mySquaredLabsRepos = [
-  "squaredlabs.uconn.edu",
-  "illustration-webform",
-  "tech-workorder-form"
-];
+  'squaredlabs.uconn.edu',
+  'illustration-webform',
+  'tech-workorder-form'
+]
 const myHacktoberfestRepos = [
   'weatherapp',
   'helectron',
@@ -59,52 +59,50 @@ const myMergedRepos = [
   'rplace'
 ]
 export default {
-  name: "Projects",
-  async mounted() {
-    const myReposURL = "https://api.github.com/users/colinmcneil/repos";
-    const squaredLabsReposURL = "https://api.github.com/orgs/squaredlabs/repos";
-    let myReposRaw = await fetch(myReposURL);
-    let myRepos = await myReposRaw.json();
+  name: 'Projects',
+  async mounted () {
+    const myReposURL = 'https://api.github.com/users/colinmcneil/repos'
+    const squaredLabsReposURL = 'https://api.github.com/orgs/squaredlabs/repos'
+    let myReposRaw = await fetch(myReposURL)
+    let myRepos = await myReposRaw.json()
 
-    let squaredLabsReposRaw = await fetch(squaredLabsReposURL);
-    let squaredLabsRepos = await squaredLabsReposRaw.json();
+    let squaredLabsReposRaw = await fetch(squaredLabsReposURL)
+    let squaredLabsRepos = await squaredLabsReposRaw.json()
     squaredLabsRepos = squaredLabsRepos.filter(current => {
-      return mySquaredLabsRepos.includes(current.name);
-    });
+      return mySquaredLabsRepos.includes(current.name)
+    })
 
     this.projects = myRepos
       .concat(squaredLabsRepos)
       .sort(byDate)
       .map(project => {
         project.displayURL = project.url.replace(
-          "api.github.com/repos",
-          "github.com"
-        );
-        if(myHacktoberfestRepos.includes(project.name))
-          project.hacktoberfest=true
-        if(myMergedRepos.includes(project.name))
-          project.merged=true
-        return project;
-    });
+          'api.github.com/repos',
+          'github.com'
+        )
+        if (myHacktoberfestRepos.includes(project.name)) { project.hacktoberfest = true }
+        if (myMergedRepos.includes(project.name)) { project.merged = true }
+        return project
+    })
   },
-  data() {
+  data () {
     return {
       projects: [],
       hovered: false
-    };
+    }
   },
   methods: {
-    projectHover(event) {
+    projectHover (event) {
       setTimeout(() => {
-        this.hovered = true;
-      }, 300);
+        this.hovered = true
+      }, 300)
     },
-    projectLeave() {
-      this.hovered = false;
+    projectLeave () {
+      this.hovered = false
     },
-    projectClick(url) {
+    projectClick (url) {
       if (this.hovered) {
-        window.open(url, "_blank");
+        window.open(url, '_blank')
       }
     }
   },
@@ -112,7 +110,7 @@ export default {
     VMinTileGrid,
     VMinTile
   }
-};
+}
 </script>
 
 <style scoped>

@@ -9,16 +9,12 @@
       v-on:mouseover="expandedMenu=true" v-on:mouseleave="expandedMenu=false">
       <transition name="fade-slow">
       <div class="menuBar" v-bind:class="{expandedItems:expanded,expandedMenu:expandedMenu}" v-if="loaded">
-        <a id="resume" class="menuItem" v-on:mouseover="mouseOver(0)" v-on:mouseleave="mouseLeave" v-on:click="loadView(0)">resume</a>
-        <a id="contact" class="menuItem" v-on:mouseover="mouseOver(1)" v-on:mouseleave="mouseLeave" v-on:click="loadView(1)">contact</a>
-        <a id="projects" class="menuItem" v-on:mouseover="mouseOver(2)" v-on:mouseleave="mouseLeave" v-on:click="loadView(2)">projects</a>
+        <a id="resume" class="menuItem" v-on:mouseover="mouseOver(0)" v-on:mouseleave="mouseLeave" v-on:click="loadView(0)" :class="{selected:viewIndex===0}">resume</a>
+        <a id="contact" class="menuItem" v-on:mouseover="mouseOver(1)" v-on:mouseleave="mouseLeave" v-on:click="loadView(1)" :class="{selected:viewIndex===1}">contact</a>
+        <a id="projects" class="menuItem" v-on:mouseover="mouseOver(2)" v-on:mouseleave="mouseLeave" v-on:click="loadView(2)" :class="{selected:viewIndex===2}">projects</a>
         <a v-if="expanded" id="back" v-on:mouseover="mouseOver(-1)" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
       </div>
       </transition>
-      <div class="menuBar lowerMenu" v-bind:class="{expandedItems:expanded,expandedMenu:expandedMenu}" v-if="loaded">
-        <a v-if="!expanded" class="menuItem hire" v-on:mouseover="mouseOver(3)"
-        v-on:mouseleave="mouseLeave" v-on:click="loadView(3)">hire</a>
-      </div>
       </div>
 
     </div>
@@ -56,16 +52,18 @@ export default {
       menuClickable: this.skip,
       hoveredIndex: this.skip ? 0 : -2,
       hidden: false,
-      expandedMenu: false
+      expandedMenu: false,
+      viewIndex: -1,
     }
   },
 
   methods: {
     loadView (view) {
       if (!this.menuClickable || this.hoveredIndex !== view) return
+      this.viewIndex = view
       this.menuClickable = false
       this.expanded = true
-      this.expandedMenu = false;
+      this.expandedMenu = false
       if (view === -1) {
         this.hidden = true
         this.expanded = false
@@ -79,7 +77,7 @@ export default {
         return
       }
       this.menuClickable = false
-      if (view === 0) {
+      if (view === 0) { 
         setTimeout(() => {
           this.view = `<div id="resumeContainer">${this.resumeHTML}</div>`
         }, 300)
@@ -214,6 +212,7 @@ export default {
 #contactContainer {
   font-size: 2em;
   text-align: center;
+  max-width: 550px;
 }
 #hireContainer {
   font-size: 3em;
@@ -291,10 +290,14 @@ export default {
 .menuItem {
   box-shadow: inset 0px 0px 0px 5em black;
   transition: ease-in-out all 0.3s;
+  color: white;
+  font-weight: bolder;
   width: 4em;
+  line-height: 2em;
   font-size: 2em;
-  text-align: center;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -306,13 +309,19 @@ export default {
   font-size: 3em;
   box-shadow: none;
   cursor: pointer;
+  color: black;
+}
+.menuItem.selected {
+  border-bottom: solid green 2px;
+  margin-bottom: 5px;
 }
 .expandedItems .menuItem {
   height: 4em;
 }
 #back {
   box-shadow: inset 0px 0px 0px 5em rgb(65, 151, 77);
-  color: rgb(65, 151, 77);
+  color: white;
+  margin-top: 5px;
 }
 #back:hover {
   font-size: 3em;
