@@ -53,7 +53,7 @@ export default {
       hoveredIndex: this.skip ? 0 : -2,
       hidden: false,
       expandedMenu: false,
-      viewIndex: -1,
+      viewIndex: -1
     }
   },
 
@@ -77,7 +77,7 @@ export default {
         return
       }
       this.menuClickable = false
-      if (view === 0) { 
+      if (view === 0) {
         setTimeout(() => {
           this.view = `<div id="resumeContainer">${this.resumeHTML}</div>`
         }, 300)
@@ -368,6 +368,7 @@ export default {
   }
   .menuItem {
     font-size: 1.2rem;
+
   }
   .expandedItems {
     font-size: 1.5em;
@@ -375,7 +376,8 @@ export default {
     opacity: 0.7;
   }
   .expandedItems .menuItem {
-    font-size: 1.2em;
+    font-size: 1em;
+    line-height: 1em;
   }
   .expandedItems .menuItem:hover {
     font-size: 1.5em;
