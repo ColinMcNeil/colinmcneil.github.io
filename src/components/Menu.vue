@@ -1,23 +1,58 @@
 <template>
   <div id="menu">
-      <transition name="fade">
-      <div id="viewContainer" v-bind:class="{expandedView:expanded}" v-if="loaded" >
-        <h1 class="menuTitle" v-bind:class="{expanded:expanded,hidden:hidden,expandedMenu:expandedMenu}" v-html="view"></h1>
+    <transition name="fade">
+      <div
+        v-if="loaded"
+        id="viewContainer"
+        :class="{expandedView:expanded}" >
+        <h1
+          :class="{expanded:expanded,hidden:hidden,expandedMenu:expandedMenu}"
+          class="menuTitle"
+          v-html="view"/>
       </div>
-      </transition>
-      <div class="menuItems" v-bind:class="{expandedItems:expanded}"
-      v-on:mouseover="expandedMenu=true" v-on:mouseleave="expandedMenu=false">
+    </transition>
+    <div
+      :class="{expandedItems:expanded}"
+      class="menuItems"
+      @mouseover="expandedMenu=true"
+      @mouseleave="expandedMenu=false">
       <transition name="fade-slow">
-      <div class="menuBar" v-bind:class="{expandedItems:expanded,expandedMenu:expandedMenu}" v-if="loaded">
-        <a id="resume" class="menuItem" v-on:mouseover="mouseOver(0)" v-on:mouseleave="mouseLeave" v-on:click="loadView(0)" :class="{selected:viewIndex===0}">resume</a>
-        <a id="contact" class="menuItem" v-on:mouseover="mouseOver(1)" v-on:mouseleave="mouseLeave" v-on:click="loadView(1)" :class="{selected:viewIndex===1}">contact</a>
-        <a id="projects" class="menuItem" v-on:mouseover="mouseOver(2)" v-on:mouseleave="mouseLeave" v-on:click="loadView(2)" :class="{selected:viewIndex===2}">projects</a>
-        <a v-if="expanded" id="back" v-on:mouseover="mouseOver(-1)" v-on:mouseleave="mouseLeave" class="menuItem" v-on:click="loadView(-1)">back</a>
-      </div>
+        <div
+          v-if="loaded"
+          :class="{expandedItems:expanded,expandedMenu:expandedMenu}"
+          class="menuBar">
+          <a
+            id="resume"
+            :class="{selected:viewIndex===0}"
+            class="menuItem"
+            @mouseover="mouseOver(0)"
+            @mouseleave="mouseLeave"
+            @click="loadView(0)">resume</a>
+          <a
+            id="contact"
+            :class="{selected:viewIndex===1}"
+            class="menuItem"
+            @mouseover="mouseOver(1)"
+            @mouseleave="mouseLeave"
+            @click="loadView(1)">contact</a>
+          <a
+            id="projects"
+            :class="{selected:viewIndex===2}"
+            class="menuItem"
+            @mouseover="mouseOver(2)"
+            @mouseleave="mouseLeave"
+            @click="loadView(2)">projects</a>
+          <a
+            v-if="expanded"
+            id="back"
+            class="menuItem"
+            @mouseover="mouseOver(-1)"
+            @mouseleave="mouseLeave"
+            @click="loadView(-1)">back</a>
+        </div>
       </transition>
-      </div>
-
     </div>
+  </div>
 </template>
 
 <script>
@@ -28,15 +63,7 @@ require('isomorphic-fetch')
 
 export default {
   name: 'Menu',
-  props: ['skip'],
-  async mounted () {
-    let converter = new showdown.Converter()
-    const URL =
-      'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece29677103f36e5f5e/raw/Resume.md'
-    let res = await fetch(URL)
-    let rawMD = await res.text()
-    this.resumeHTML = converter.makeHtml(rawMD)
-  },
+  props: {skip: {type: Boolean, required: false, default: false}},
 
   data () {
     if (this.skip) {
@@ -55,6 +82,14 @@ export default {
       expandedMenu: false,
       viewIndex: -1
     }
+  },
+  async mounted () {
+    let converter = new showdown.Converter()
+    const URL =
+      'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece29677103f36e5f5e/raw/Resume.md'
+    let res = await fetch(URL)
+    let rawMD = await res.text()
+    this.resumeHTML = converter.makeHtml(rawMD)
   },
 
   methods: {
@@ -152,6 +187,8 @@ export default {
 .menuTitle {
   font-family: "Poiret One";
   position: absolute;
+  display: flex;
+  justify-content: center;
   top: 38%;
   left: 50%;
   transform: translate(-50%, -110%);
@@ -163,14 +200,17 @@ export default {
   text-align: center;
   box-sizing: border-box;
   padding-bottom: 10px;
-  transition: ease all 0.3s;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  transition: ease all 0.2s;
 }
+
+.defaultMenu  {
+  background-color: black;
+  width: 90%;
+  display: block;
+  margin-top: 1rem;
+  color: white;
+}
+
 .expandedMenu {
   /* width:30rem; */
   width: calc(30rem + 24px);
@@ -180,6 +220,7 @@ export default {
 .hidden {
   transform: translate(-50%, -1000%);
 }
+
 .expanded {
   display: flex;
   justify-content: center;
@@ -194,6 +235,7 @@ export default {
   box-sizing: border-box;
   padding: 10px;
 }
+
 .expanded:hover {
   border: none;
 }
@@ -209,11 +251,13 @@ export default {
   width: 100%;
   left: 0;
 }
+
 #contactContainer {
   font-size: 2em;
   text-align: center;
   max-width: 550px;
 }
+
 #hireContainer {
   font-size: 3em;
   text-align: center;
@@ -226,6 +270,7 @@ export default {
   padding: 5px;
   font-weight: 500;
 }
+
 @media only screen and (max-width: 600px) {
   #hireContainer {
     font-size: 1rem;
@@ -243,9 +288,11 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .expandedView {
   height: auto;
 }
+
 .menuItems {
   display: flex;
   flex-direction: column;
@@ -256,21 +303,30 @@ export default {
   border: solid black 3px;
   border-top: none;
   padding: 10px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
+
 .menuBar {
   font-family: "Poiret One";
-  transition: ease 0.3s all;
+  transition: ease 0.2s all;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 25rem;
 }
+
 .menuItems:hover .menuBar {
   width: 30rem;
 }
+
 .lowerMenu {
   margin-top: 20px;
   justify-content: center;
 }
+
 .expandedMenu .lowerMenu {
   top: 55%;
 }
@@ -287,9 +343,10 @@ export default {
   height: 5rem;
   border: none;
 }
+
 .menuItem {
-  box-shadow: inset 0px 0px 0px 5em black;
-  transition: ease-in-out all 0.3s;
+  background-color: black;
+  transition: ease all 0.2s;
   color: white;
   font-weight: bolder;
   width: 4em;
@@ -298,16 +355,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
+
 .menuItem:hover {
   font-size: 3em;
-  box-shadow: none;
+  background-color: white;
   cursor: pointer;
   color: black;
 }
