@@ -4,19 +4,48 @@
       <h1>Projects</h1>
       <div v-show="projects==[]">Loading...</div>
       <v-min-tile-grid>
+        <h2>General</h2>
+        <hr class="split">
         <v-min-tile
-          class= "project"
-          title="Legend">
+          v-for="project in hardCodedProjects"
+          :key="project.name"
+          :title="project.name"
+          class="project">
+          <h4 class="desc">{{ project.description }}</h4>
 
           <div
-            class="icon"
-            title="Hacktoberfest PR">🎃 Hacktoberfest PR</div>
+            :style="{
+              borderColor:$store.state.theme.secondaryColor,
+              color: $store.state.theme.secondaryColor}"
+            class="meta">
+            <a
+              :href="project.displayURL"
+              target="_blank"
+              rel="noopener">URL
+            </a>
+          </div>
+
+        </v-min-tile>
+        <h2>Open Source</h2>
+        <hr class="split">
+        <v-min-tile
+          class= "project"
+          title="Open Source Legend">
           <div
             class="icon"
-            title="Open Source Fork">👐 Open Source Fork</div>
+            title="Hacktoberfest PR">
+            🎃 Hacktoberfest PR
+          </div>
           <div
             class="icon"
-            title="Merged PR">🔥 Merged PR</div>
+            title="Open Source Fork">
+            👐 Open Source Fork
+          </div>
+          <div
+            class="icon"
+            title="Merged PR">
+            🔥 Merged PR
+          </div>
         </v-min-tile>
         <v-min-tile
           v-for="project in projects"
@@ -48,6 +77,7 @@
               title="Merged PR">🔥</div>
           </div>
         </v-min-tile>
+
       </v-min-tile-grid>
     </div>
     <router-link
@@ -83,7 +113,16 @@ const myMergedRepos = [
   'tplink-cloud-api',
   'Epiboard',
   'Android-Messages-Sleek',
-  'rplace'
+  'rplace',
+  'helectron'
+]
+const hardCodedProjects = [
+  {
+    name: 'Geographic Survey App',
+    description: 'A complex senior-design project to deploy geographic surveys to volunteer scientists',
+    displayURL: 'https://i.imgur.com/gyBMLBS.png'
+  }
+
 ]
 export default {
   name: 'Projects',
@@ -94,6 +133,7 @@ export default {
   data () {
     return {
       projects: [],
+      hardCodedProjects,
       hovered: false
     }
   },
@@ -162,6 +202,11 @@ export default {
   flex-direction: column;
   margin-bottom: 10%;
   min-width: 300px;
+}
+
+.split {
+  width: 100%;
+  border: solid black 0.1px;
 }
 
 .desc {

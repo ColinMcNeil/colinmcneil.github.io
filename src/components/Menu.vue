@@ -83,6 +83,7 @@ export default {
       viewIndex: -1
     }
   },
+
   async mounted () {
     let converter = new showdown.Converter()
     const URL =
