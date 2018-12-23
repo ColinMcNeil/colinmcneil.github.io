@@ -5,6 +5,8 @@
 ## Build Setup
 
 ``` bash
+cd src #Using src because github forces user pages to build from master
+
 # install dependencies
 npm install
 
