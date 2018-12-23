@@ -1,0 +1,27 @@
+{
+  "name": "colinmcneil.me",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "author": "Colin <colinmcneil@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.5",
+    "isomorphic-fetch": "^2.2.1",
+    "mina-vue": "0.0.4",
+    "nuxt": "^2.3.4",
+    "showdown": "^1.9.0",
+    "snapsvg-cjs": "0.0.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.15.0",
+    "push-dir": "^0.4.1"
+  }
+}
