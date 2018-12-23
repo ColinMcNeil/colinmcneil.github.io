@@ -3,15 +3,15 @@
     <div id="projects">
       <h1>Projects</h1>
       <div v-show="projects==[]">Loading...</div>
-      <v-min-tile-grid>
+      <VMinTileGrid>
         <h2>General</h2>
         <hr class="split">
-        <v-min-tile
+        <VMinTile
           v-for="project in hardCodedProjects"
           :key="project.name"
           :title="project.name"
           class="project">
-          <h4 class="desc">{{ project.description }}</h4>
+          <h4 class="desc">{{ project.description=="" ? "No description" : project.description }}</h4>
 
           <div
             :style="{
@@ -25,10 +25,12 @@
             </a>
           </div>
 
-        </v-min-tile>
-        <h2>Open Source</h2>
-        <hr class="split">
-        <v-min-tile
+        </VMinTile>
+        <div class="openSource">
+          <h2>Open Source</h2>
+          <hr class="split">
+        </div>
+        <VMinTile
           class= "project"
           title="Open Source Legend">
           <div
@@ -46,8 +48,8 @@
             title="Merged PR">
             🔥 Merged PR
           </div>
-        </v-min-tile>
-        <v-min-tile
+        </VMinTile>
+        <VMinTile
           v-for="project in projects"
           :key="project.name"
           :title="project.name"
@@ -76,9 +78,9 @@
               class="icon"
               title="Merged PR">🔥</div>
           </div>
-        </v-min-tile>
+        </VMinTile>
 
-      </v-min-tile-grid>
+      </VMinTileGrid>
     </div>
     <router-link
       id="back"
@@ -87,7 +89,6 @@
 </template>
 
 <script>
-import { VMinTileGrid, VMinTile } from 'mina-vue'
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
@@ -126,10 +127,6 @@ const hardCodedProjects = [
 ]
 export default {
   name: 'Projects',
-  components: {
-    VMinTileGrid,
-    VMinTile
-  },
   data () {
     return {
       projects: [],
@@ -193,7 +190,8 @@ export default {
   transform: translate(-50%, -50%);
   text-align: center;
   overflow-y: auto;
-  padding: 1em;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .project {
@@ -202,6 +200,10 @@ export default {
   flex-direction: column;
   margin-bottom: 10%;
   min-width: 300px;
+}
+
+.openSource {
+  flex-basis: 100%;
 }
 
 .split {

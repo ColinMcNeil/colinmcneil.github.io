@@ -108,7 +108,9 @@
 </template>
 
 <script>
-  import Snap from 'snapsvg-cjs'
+  if (process.client) {
+    const snap = require('snapsvg-cjs')
+  }
 
   export default {
     name: 'Title',
@@ -118,6 +120,7 @@
       }
     },
     mounted () {
+
       const svg = this.$refs.owlSVG
       Snap(svg)
       let myname = Snap.select('#myname')

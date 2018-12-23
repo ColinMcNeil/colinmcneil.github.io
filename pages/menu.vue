@@ -63,10 +63,9 @@ require('isomorphic-fetch')
 
 export default {
   name: 'Menu',
-  props: {skip: {type: Boolean, required: false, default: false}},
-
   data () {
-    if (this.skip) {
+    const skip = this.$route.params.skip
+    if (skip ) {
       setTimeout(() => {
         this.loadView(0)
       }, 500)
@@ -76,8 +75,8 @@ export default {
       resume: 'Loading...',
       view: '<span class="defaultMenu">my stuff.</span>',
       expanded: false,
-      menuClickable: this.skip,
-      hoveredIndex: this.skip ? 0 : -2,
+      menuClickable: skip,
+      hoveredIndex: skip ? 0 : -2,
       hidden: false,
       expandedMenu: false,
       viewIndex: -1
@@ -128,7 +127,7 @@ export default {
                   <a href="https://github.com/colinmcneil" target="_blank">
                     githhub.com/colinmcneil
                   </a>
-                  | 
+                  |
                   <a href="https://github.com/squaredlabs" target="_blank">
                     github.com/squaredlabs</p>
                   </a>
