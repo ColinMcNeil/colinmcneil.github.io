@@ -350,7 +350,7 @@ export default {
   color: white;
   font-weight: bolder;
   width: 4em;
-  line-height: 2em;
+  padding: 0.5em 0;
   font-size: 2em;
   display: flex;
   justify-content: center;
