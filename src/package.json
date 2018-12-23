@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "deploy": "cpx .nuxt/**/* ../"
+    "deploy": "cpx dist/**/* ../"
   },
   "dependencies": {
     "cpx": "^1.5.0",
