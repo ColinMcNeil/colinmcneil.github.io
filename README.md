@@ -1,20 +1,21 @@
 # colinmcneil.me
 
-> My personal website
+> My personal website written in Nuxt.js
 
 ## Build Setup
 
 ``` bash
-cd src #Using src because github forces user pages to build from master
+#Using src folder because github forces user pages to build from master
+cd src 
 
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:3000
 npm run dev
 
-# build for production with minification
-npm run build
+# generate static site for gh pages, then copy to project root
+npm run gen-deploy
 
 # build for production and view the bundle analyzer report
 npm run build --report
