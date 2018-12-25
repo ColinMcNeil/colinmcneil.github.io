@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{167:function(e,n,t){"use strict";t.r(n);var u={mounted:function(){this.$router.push({name:"menu",params:{skip:!0}})}},s=t(15),i=Object(s.a)(u,function(){var e=this.$createElement;return(this._self._c||e)("div")},[],!1,null,null,null);i.options.__file="resume.vue";n.default=i.exports}}]);

@@ -79,12 +79,8 @@
               title="Merged PR">🔥</div>
           </div>
         </VMinTile>
-
       </VMinTileGrid>
     </div>
-    <router-link
-      id="back"
-      to="/menu">back</router-link>
   </div>
 </template>
 
