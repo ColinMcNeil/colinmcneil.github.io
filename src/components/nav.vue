@@ -1,12 +1,14 @@
 <template>
-  <div class="container" :class="{centered:centered}">
-    <nuxt-link class="link home" to="/">Colin McNeil</nuxt-link>
-    <nuxt-link to="/">
-      <img src="~/assets/logo.svg"/>
-    </nuxt-link>
-    <nuxt-link class="link" to="/contact">contact</nuxt-link>
-    <nuxt-link class="link" to="/resume">resume</nuxt-link>
-    <nuxt-link class="link" to="/projects">projects</nuxt-link>
+  <div class="containerFlex" :class="{centered:centered}">
+    <div class="container" :class="{centered:centered}">
+      <nuxt-link class="link home" to="/">Colin McNeil</nuxt-link>
+      <nuxt-link to="/">
+        <img src="~/assets/logo.svg"/>
+      </nuxt-link>
+      <nuxt-link class="link" to="/contact">contact</nuxt-link>
+      <nuxt-link class="link" to="/resume">resume</nuxt-link>
+      <nuxt-link class="link" to="/projects">projects</nuxt-link>
+    </div>
   </div>
 </template>
 <script>
@@ -25,6 +27,14 @@ export default {
 
 <style scoped>
   @import url("https://fonts.googleapis.com/css?family=Poiret+One");
+  .containerFlex.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
   .container {
     position: fixed;
     display: flex;
@@ -32,16 +42,12 @@ export default {
     flex-wrap: wrap;
   }
   .container.centered {
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
     min-height: 490px;
     flex-wrap: nowrap;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   img {
     width: 70px;
