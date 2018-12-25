@@ -66,15 +66,15 @@
               target="_blank"
               rel="noopener">URL</a></div>
             <div
-              v-if="project.hacktoberfest"
+              v-show="project.hacktoberfest"
               class="icon"
               title="Hacktoberfest PR">🎃</div>
             <div
-              v-else-if="project.fork"
+              v-show="project.fork"
               class="icon"
               title="Open Source Fork">👐</div>
             <div
-              v-if="project.merged"
+              v-show="project.merged"
               class="icon"
               title="Merged PR">🔥</div>
           </div>

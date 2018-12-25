@@ -27,6 +27,9 @@ export default {
 
 <style scoped>
   @import url("https://fonts.googleapis.com/css?family=Poiret+One");
+  .containerFlex {
+    z-index: 10;
+  }
   .containerFlex.centered {
     display: flex;
     justify-content: center;

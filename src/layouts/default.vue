@@ -20,9 +20,6 @@ export default {
     font-family: "Poiret One";
     transition: ease 0.2s all;
   }
-  .nav{
-    z-index: 10;
-  }
   .pad {
     height: 150px;
   }
