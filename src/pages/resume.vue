@@ -23,7 +23,6 @@ export default {
 </script>
 <style scoped>
 .resumeContainer {
-  flex: 0 1 800px;
   overflow-y: auto;
   position: relative;
   border: solid black 1px;
@@ -33,6 +32,14 @@ export default {
   width: 80%;
   left: 10%;
   margin-bottom: 2em;
+  transition: ease 0.2s all;
+}
+@media only screen and (max-width: 600px) {
+  .resumeContainer {
+    margin: 10px;
+    left: 0;
+    border: none;
+  }
 }
 </style>
 

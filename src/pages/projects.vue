@@ -177,14 +177,12 @@ export default {
 #projects {
   font-family: "Inconsolata";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 70%;
-  transform: translate(-50%, -50%);
   text-align: center;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
 }
 
 .project {
@@ -213,41 +211,15 @@ export default {
   justify-content: space-around;
 }
 
-.project .imgContainer {
-  width: 50%;
-  transform: translateX(50%);
-  cursor: pointer;
-}
-
-#back {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-decoration: none;
-  color: black;
-  font-family: "Poiret One";
-  font-size: 2em;
-  transition: ease-in-out 0.3s all;
-  background-color: white;
-  padding: 5px;
-}
-
-#back:hover {
-  cursor: pointer;
-  opacity: 1;
-  padding: 10px;
-}
-
 .icon {
   cursor: default;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   #projects {
     width: 100%;
-    height: 300px;
-    transform: translate(-50%, -70%);
+    height: 100%;
+    top: 200px;
   }
 }
 </style>
