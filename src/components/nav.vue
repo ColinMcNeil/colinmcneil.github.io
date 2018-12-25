@@ -45,7 +45,6 @@ export default {
     margin: 0 0 1em 1em;
   }
   .link {
-    font-family: "Poiret One";
     color: white;
     font-size: 2em;
     background-color: black;
