@@ -174,9 +174,6 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Poiret+One");
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
-
 #projects {
   font-family: "Inconsolata";
   position: absolute;

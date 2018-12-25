@@ -15,7 +15,6 @@
   </div>
 </template>
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Poiret+One");
 #contactContainer {
   font-size: 2em;
   text-align: center;

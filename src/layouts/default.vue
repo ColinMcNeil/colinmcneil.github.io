@@ -15,8 +15,6 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Poiret+One");
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
   html,body {
     margin: 0;
     font-family: "Poiret One";

@@ -161,7 +161,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Poiret+One');
   #title{
     height: 350px;
     top: 50%;

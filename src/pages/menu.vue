@@ -182,8 +182,6 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Poiret+One");
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 .menuTitle {
   font-family: "Poiret One";
   position: absolute;
@@ -279,7 +277,6 @@ export default {
 </style>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Poiret+One");
 
 #viewContainer {
   width: 100%;
