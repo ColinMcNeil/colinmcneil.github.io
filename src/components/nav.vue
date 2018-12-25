@@ -37,6 +37,7 @@ export default {
     width: 50%;
     height: 50%;
     min-height: 490px;
+    flex-wrap: nowrap;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;

@@ -6,8 +6,6 @@
  * @version   v4.2.5+7f2b526d
  */
 
-/*! showdown v 1.9.0 - 10-11-2018 */
-
 /*!
  * Vue.js v2.5.21
  * (c) 2014-2018 Evan You
@@ -43,3 +41,5 @@
  * (c) 2018-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
  */
+
+/*! showdown v 1.9.0 - 10-11-2018 */
