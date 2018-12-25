@@ -36,6 +36,7 @@ export default {
     left: 50%;
     width: 50%;
     height: 50%;
+    min-height: 490px;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
