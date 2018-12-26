@@ -1,5 +1,7 @@
 <template>
-  <div class="resumeContainer" v-html="resumeHTML"/>
+  <div class="container">
+    <div class="resumeContainer" v-html="resumeHTML"/>
+  </div>
 </template>
 <script>
 import showdown from 'showdown'
@@ -22,6 +24,11 @@ export default {
 }
 </script>
 <style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .resumeContainer {
   overflow-y: auto;
   position: relative;
@@ -29,16 +36,17 @@ export default {
   padding: 20px;
   font-family: "Inconsolata";
   font-weight: 500;
-  width: 80%;
-  left: 10%;
+  min-width: 560px;
+  flex-basis: 50%;
   margin-bottom: 2em;
   transition: ease 0.2s all;
+  text-align: center;
 }
 @media only screen and (max-width: 600px) {
   .resumeContainer {
-    margin: 10px;
-    left: 0;
     border: none;
+    min-width: 0;
+    flex-basis: 100%;
   }
 }
 </style>

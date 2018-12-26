@@ -38,9 +38,15 @@ export default {
   .container {
     position: fixed;
     display: flex;
-    margin: 1em;
+    padding: 1em;
     flex-wrap: wrap;
     z-index: 10;
+    width: 100%;
+    top: 0;
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 29%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 29%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 29%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
   }
   .container.centered {
     min-height: 490px;
@@ -49,6 +55,8 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 1em;
+    top: auto;
   }
   img {
     width: 70px;
@@ -77,6 +85,14 @@ export default {
   }
   .link.home {
     display: none;
+    background-color: transparent;
+    text-decoration: underline;
+    color: black;
+    font-weight: bolder;
+  }
+  .container.centered .link.home:hover {
+    height: 1em;
+    padding: 0;
   }
   .container.centered .link{
     height: 1em;
