@@ -3,6 +3,7 @@
     <div class="resumeContainer" v-html="resumeHTML"/>
   </div>
 </template>
+
 <script>
 import showdown from 'showdown'
 
@@ -23,6 +24,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .container {
   display: flex;
@@ -40,7 +42,6 @@ export default {
   flex-basis: 50%;
   margin-bottom: 2em;
   transition: ease 0.2s all;
-  text-align: center;
 }
 @media only screen and (max-width: 600px) {
   .resumeContainer {
@@ -50,4 +51,11 @@ export default {
   }
 }
 </style>
+
+<style>
+.resumeContainer h2 {
+  text-align: center;
+}
+</style>
+
 

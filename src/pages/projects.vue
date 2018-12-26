@@ -123,26 +123,18 @@ const hardCodedProjects = [
 ]
 export default {
   name: 'Projects',
-  data () {
-    return {
-      projects: [],
-      hardCodedProjects,
-      hovered: false
-    }
-  },
-  async mounted () {
+  data: () => ({hardCodedProjects}),
+  async asyncData () {
     const myReposURL = 'https://api.github.com/users/colinmcneil/repos'
     const squaredLabsReposURL = 'https://api.github.com/orgs/squaredlabs/repos'
-    let myReposRaw = await fetch(myReposURL)
-    let myRepos = await myReposRaw.json()
-
-    let squaredLabsReposRaw = await fetch(squaredLabsReposURL)
+    const myReposRaw = await fetch(myReposURL)
+    const myRepos = await myReposRaw.json()
+    const squaredLabsReposRaw = await fetch(squaredLabsReposURL)
     let squaredLabsRepos = await squaredLabsReposRaw.json()
     squaredLabsRepos = squaredLabsRepos.filter(current => {
       return mySquaredLabsRepos.includes(current.name)
     })
-
-    this.projects = myRepos
+    const projects = myRepos
       .concat(squaredLabsRepos)
       .sort(byDate)
       .map(project => {
@@ -154,21 +146,7 @@ export default {
         if (myMergedRepos.includes(project.name)) { project.merged = true }
         return project
     })
-  },
-  methods: {
-    projectHover (event) {
-      setTimeout(() => {
-        this.hovered = true
-      }, 300)
-    },
-    projectLeave () {
-      this.hovered = false
-    },
-    projectClick (url) {
-      if (this.hovered) {
-        window.open(url, '_blank')
-      }
-    }
+    return {projects}
   }
 }
 </script>
