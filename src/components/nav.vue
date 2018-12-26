@@ -2,7 +2,7 @@
   <div class="containerFlex" :class="{centered:centered}">
     <div class="container" :class="{centered:centered}">
       <nuxt-link class="link home" to="/">Colin McNeil</nuxt-link>
-      <nuxt-link to="/">
+      <nuxt-link to="/" class="imageLink">
         <img src="~/assets/logo.svg"/>
       </nuxt-link>
       <nuxt-link class="link" to="/contact">contact</nuxt-link>
@@ -40,9 +40,11 @@ export default {
     display: flex;
     padding: 1em;
     flex-wrap: wrap;
+    justify-content: center;
     z-index: 10;
     width: 100%;
     top: 0;
+    margin-left: -70px;
     background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 29%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 29%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 29%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -60,28 +62,30 @@ export default {
   }
   img {
     width: 70px;
-    margin: 0 0 1em 1em;
+    background-color: #4e341d;
   }
   .link {
     color: white;
     font-size: 2em;
     background-color: black;
     text-decoration: none;
-    margin : 0.2em;
+    margin : 0 0.5em;
     line-height: 0.7em;
-    width: 199px;
+    width: 200px;
     display: flex;
     align-items: center;
-    border-radius: 8px;
     justify-content: center;
     transition: ease 0.2s all;
     height: 1em;
     margin-top: 0;
   }
   .link:hover{
-    height: 105px;
+    height: 114px;
     background-color: #4e341d;
     color: #eddbd6;
+  }
+  .nuxt-link-active {
+    background-color: #4e341d;
   }
   .link.home {
     display: none;
@@ -96,6 +100,7 @@ export default {
   }
   .container.centered .link{
     height: 1em;
+    margin-top: 0.2em;
   }
 
   .container.centered .link:hover {
@@ -106,6 +111,21 @@ export default {
   }
   .container.centered img {
     width: 200px;
-    margin: 0 0 1em 0;
+    margin: 0;
+  }
+  .container.centered .imageLink {
+    margin: 0.5em 0 0.4em 0;
+  }
+  @media only screen and (max-width: 600px) {
+    .link {
+      margin: 0.5em;
+    }
+    .container.centered .link:hover {
+      padding: 0;
+    }
+    .container{
+      margin: 0;
+      background-color: rgba(255, 255, 255, 0.493);
+    }
   }
 </style>
