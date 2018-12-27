@@ -10,6 +10,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: 'The personal website, protfolio, and contact for Colin McNeil.'}
     ],
     htmlAttrs: {
       lang: 'en',
@@ -20,4 +21,7 @@ export default {
       families: ['Poiret+One', 'Inconsolata'] //Loads Lato font with weights 400 and 700
     }
   },
+  build: {
+    cache: true
+  }
 }
