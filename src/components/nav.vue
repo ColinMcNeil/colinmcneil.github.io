@@ -143,8 +143,16 @@ export default {
       padding: 0;
     }
     .container{
-      margin: 0;
       background-color: rgba(255, 255, 255, 0.493);
+      padding: 0;
+    }
+    .imageLink {
+      margin: 1em 30em;
     }
   }
+  @media only screen and (max-width: 1101px) {
+  .container{
+    margin: 0;
+  }
+}
 </style>

@@ -196,8 +196,7 @@ export default {
 @media only screen and (max-width: 600px) {
   #projects {
     width: 100%;
-    height: 100%;
-    top: 200px;
+    top: 300px;
   }
 }
 </style>
