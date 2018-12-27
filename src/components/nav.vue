@@ -1,7 +1,7 @@
 <template>
   <div class="containerFlex" :class="{centered:centered}">
     <div class="container" :class="{centered:centered}">
-      <nuxt-link class="link home" to="/">Colin McNeil</nuxt-link>
+      <nuxt-link class="link home" to="/" @mouseover.native="hovered=true" @mouseleave.native="hovered=false">{{title}}</nuxt-link>
       <nuxt-link to="/" class="imageLink">
         <img src="~/assets/logo.svg"/>
       </nuxt-link>
@@ -15,11 +15,16 @@
 export default {
   data(){
     let centered = this.$router.currentRoute.name === 'index'
-    return {centered}
+    return {centered, hovered: false}
   },
   watch: {
     $route: function(route) {
       this.centered = route.name === 'index'
+    }
+  },
+  computed: {
+    title(){
+      return this.hovered ? 'I am a well-rounded [maker, developer, technician, problem solver, espresso enthusiast] interested in Web Development & Data Science' : 'Colin McNeil'
     }
   }
 }
@@ -108,6 +113,20 @@ export default {
   }
   .container.centered .link.home {
     display: flex;
+    height: 3em;
+  }
+  .container.centered .link.home:hover {
+    font-size: 1.5em;
+    line-height: 0.9em;
+    padding: 2em;
+    text-decoration: none;
+    width: 50%;
+    min-width: 350px;
+    text-align: center;
+    font-family: inconsolata;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-weight: 500;
   }
   .container.centered img {
     width: 200px;
