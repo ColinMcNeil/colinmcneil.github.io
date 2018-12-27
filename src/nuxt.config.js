@@ -6,11 +6,14 @@ export default {
     'nuxt-webfontloader',
   ],
   head: {
+    title: 'Colin McNeil',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {title: 'Colin McNeil'}
-    ]
+    ],
+    htmlAttrs: {
+      lang: 'en',
+    },
   },
   webfontloader: {
     google: {

@@ -1,9 +1,9 @@
 <template>
   <div class="containerFlex" :class="{centered:centered}">
     <div class="container" :class="{centered:centered}">
-      <nuxt-link class="link home" to="/" @mouseover.native="hovered=true" @mouseleave.native="hovered=false">{{title}}</nuxt-link>
-      <nuxt-link to="/" class="imageLink">
-        <img src="~/assets/logo.svg"/>
+      <nuxt-link class="link home" aria-label="Home" to="/" @mouseover.native="hovered=true" @mouseleave.native="hovered=false">{{title}}</nuxt-link>
+      <nuxt-link to="/" class="imageLink" aria-label="Home">
+        <img src="~/assets/logo.svg" alt="logo and home button"/>
       </nuxt-link>
       <nuxt-link class="link" to="/contact">contact</nuxt-link>
       <nuxt-link class="link" to="/resume">resume</nuxt-link>
