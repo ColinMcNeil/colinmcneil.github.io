@@ -11,13 +11,13 @@ require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
 export default {
-  async asyncData () {
+  async mounted() {
     let converter = new showdown.Converter()
     const URL =
       'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece29677103f36e5f5e/raw/Resume.md'
     let res = await fetch(URL)
     let rawMD = await res.text()
-    return {resumeHTML: converter.makeHtml(rawMD)}
+    this.resumeHTML = converter.makeHtml(rawMD)
   },
   data() {
     return {resumeHTML: 'Loading'}
@@ -57,5 +57,3 @@ export default {
   text-align: center;
 }
 </style>
-
-

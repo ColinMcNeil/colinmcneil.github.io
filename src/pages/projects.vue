@@ -123,8 +123,8 @@ const hardCodedProjects = [
 ]
 export default {
   name: 'Projects',
-  data: () => ({hardCodedProjects}),
-  async asyncData () {
+  data: () => ({hardCodedProjects, projects:[]}),
+  async mounted() {
     const myReposURL = 'https://api.github.com/users/colinmcneil/repos'
     const squaredLabsReposURL = 'https://api.github.com/orgs/squaredlabs/repos'
     const myReposRaw = await fetch(myReposURL)
@@ -146,7 +146,7 @@ export default {
         if (myMergedRepos.includes(project.name)) { project.merged = true }
         return project
     })
-    return {projects}
+    this.projects = projects;
   }
 }
 </script>
