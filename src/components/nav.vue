@@ -5,9 +5,11 @@
       <nuxt-link to="/" class="imageLink" aria-label="Home">
         <img src="~/assets/logo.svg" alt="logo and home button"/>
       </nuxt-link>
-      <nuxt-link class="link" to="/contact">contact</nuxt-link>
-      <nuxt-link class="link" to="/resume">resume</nuxt-link>
-      <nuxt-link class="link" to="/projects">projects</nuxt-link>
+      <div class="links" :class="{centered:centered}">
+        <nuxt-link class="link" to="/contact">contact</nuxt-link>
+        <nuxt-link class="link" to="/resume">resume</nuxt-link>
+        <nuxt-link class="link" to="/projects">projects</nuxt-link>
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +70,15 @@ export default {
   img {
     width: 70px;
     background-color: #4e341d;
+  }
+  .links {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-basis: 50%;
+  }
+  .links.centered {
+    flex-direction: column;
   }
   .link {
     color: white;
@@ -136,18 +147,19 @@ export default {
     margin: 0.5em 0 0.4em 0;
   }
   @media only screen and (max-width: 600px) {
-    .link {
-      margin: 0.5em;
+    .links {
+      height: calc(102px + 1em);
+      margin-top: 1em;
     }
-    .container.centered .link:hover {
-      padding: 0;
+    .link:hover {
+      height: 1em;
     }
     .container{
       background-color: rgba(255, 255, 255, 0.493);
       padding: 0;
     }
     .imageLink {
-      margin: 1em 30em;
+      margin: 1em 0;
     }
   }
   @media only screen and (max-width: 1101px) {
