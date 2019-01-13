@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "cross-env NODE_ENV=production nuxt generate",
-    "deploy": "cpx 'dist/**/*' ../",
+    "deploy": "cpx dist/**/* ../",
     "gen-deploy": "npm run generate && npm run deploy"
   },
   "dependencies": {
