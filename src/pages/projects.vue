@@ -3,6 +3,7 @@
     <div id="projects">
       <h1>Projects</h1>
       <div v-show="projects==[]">Loading...</div>
+      <no-ssr>
       <VMinTileGrid>
         <h2>General</h2>
         <hr class="split">
@@ -80,6 +81,7 @@
           </div>
         </VMinTile>
       </VMinTileGrid>
+      </no-ssr>
     </div>
   </div>
 </template>
