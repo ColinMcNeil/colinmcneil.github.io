@@ -82,7 +82,7 @@ export default {
   justify-content: center;
 }
 .menu > * {
-  margin: 5px;
+  margin: 15px;
   
   width: 140px;
   height: 220px;
@@ -94,13 +94,18 @@ export default {
 .card {
   width: 140px;
   min-height: 220px;
-  border: solid black 2px;
+  border: solid black 1.5px;
   height: calc(220px - 2em);
+  display: flex;
+  justify-content: center;
 }
 .card.home {
   padding: 0;
 }
 .card img {
+  width: 80px;
+}
+.card.home img {
   width: 140px;
 }
 .card-back{
@@ -112,10 +117,11 @@ export default {
 .link {
   color: white;
   font-size: 2em;
+  margin-top: 1em;
 }
 .about {
   font-size: 2em;
-  width: 280px;
+  width: 305px;
   min-height: 50px;
   padding: 5px;
   text-align: center;

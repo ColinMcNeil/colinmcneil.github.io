@@ -19,8 +19,7 @@
     "mina-vue": "0.0.4",
     "nuxt": "^2.4.3",
     "nuxt-webfontloader": "^1.0.0",
-    "showdown": "^1.9.0",
-    "snapsvg-cjs": "0.0.6"
+    "showdown": "^1.9.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
