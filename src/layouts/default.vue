@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Nav class="nav"/>
-    <div class="pad"></div>
+    <Nav v-if="!home" class="nav"/>
+    <div v-if="!home" class="pad"></div>
     <nuxt class="content"/>
   </div>
 </template>
@@ -10,6 +10,15 @@ import Nav from '~/components/nav'
 export default {
   components: {
     Nav
+  },
+  data(){
+    const home = this.$router.currentRoute.name === 'index'
+    return {home}
+  },
+  watch: {
+    $route: function(route) {
+      this.home = route.name === 'index'
+    }
   }
 }
 </script>
@@ -19,6 +28,7 @@ export default {
     margin: 0;
     font-family: "Poiret One";
     transition: ease 0.2s all;
+    height: 100%;
   }
   .pad {
     height: 150px;
@@ -31,9 +41,4 @@ export default {
     filter: blur(2px);
   }
 
-  @media only screen and (max-width: 600px) {
-    .pad {
-      height: 250px;
-    }
-  }
 </style>

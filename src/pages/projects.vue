@@ -13,7 +13,6 @@
           :title="project.name"
           class="project">
           <h4 class="desc">{{ project.description=="" ? "No description" : project.description }}</h4>
-
           <div
             :style="{
               borderColor:$store.state.theme.secondaryColor,
