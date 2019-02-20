@@ -12,6 +12,13 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'The personal website, protfolio, and contact for Colin McNeil.'}
     ],
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: 'favicon.ico',
+      },
+    ],
     htmlAttrs: {
       lang: 'en',
     },
@@ -23,5 +30,6 @@ export default {
   },
   build: {
     cache: false
-  }
+  },
+  
 }
