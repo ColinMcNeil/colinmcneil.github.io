@@ -114,15 +114,24 @@ export default {
   display: flex;
   justify-content: center;
 }
+.card-back.contact {
+  background-color: rgb(15, 94, 20);
+}
+.card-back.projects {
+  background-color: rgb(26, 117, 117);
+}
+.card-back.resume{
+  background-color: rgb(95, 29, 116);
+}
 .link {
   color: white;
   font-size: 2em;
   margin-top: 1em;
 }
 .about {
-  font-size: 2em;
+  font-size: 1.3em;
   width: 305px;
-  min-height: 50px;
+  min-height: 1.3em;
   padding: 5px;
   text-align: center;
   background-color: black;
@@ -131,7 +140,6 @@ export default {
   margin-bottom: 10px;
 }
 .about:hover {
-  font-size: 1.3em;
   min-height: 100px;
 }
 </style>

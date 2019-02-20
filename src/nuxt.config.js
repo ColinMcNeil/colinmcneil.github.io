@@ -22,6 +22,6 @@ export default {
     }
   },
   build: {
-    cache: true
+    cache: false
   }
 }

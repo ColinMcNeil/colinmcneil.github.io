@@ -1,7 +1,6 @@
 <template>
-  <div class="containerFlex">
-    <div class="container">
-      
+  <div class="containerFlex" >
+    <div class="container" :style="{backgroundColor}">
       <nuxt-link to="/" class="imageLink" aria-label="Home">
         <img src="~/assets/logo.svg" alt="logo and home button"/>
       </nuxt-link>
@@ -16,6 +15,9 @@
 <script>
 export default {
   data:()=>({hovered: false}),
+  props: {
+    backgroundColor: {type: String, required: true}
+  }
 }
 </script>
 
@@ -24,20 +26,18 @@ export default {
   .container {
     position: fixed;
     display: flex;
-    padding: 1em;
+    padding: 0.5em;
     flex-wrap: wrap;
     justify-content: center;
     z-index: 10;
-    width: 100%;
+    width: calc(100% + 110px);
     top: 0;
-    margin-left: -70px;
-    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 29%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 29%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 29%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+    margin-left: -110px;
+    transition: ease 0.3s all;
+    padding-top: 10px;
   }
   img {
-    width: 70px;
+    height: 4em;
     background-color: #4e341d;
   }
   .links {
@@ -53,13 +53,12 @@ export default {
     text-decoration: none;
     margin : 0 0.5em;
     line-height: 0.7em;
-    width: 200px;
+    width: 6em;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: ease 0.2s all;
     height: 1em;
-    margin-top: 4px;
   }
   .link:hover{
     height: 1.5em;
