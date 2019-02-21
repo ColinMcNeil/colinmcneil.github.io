@@ -125,7 +125,7 @@ const hardCodedProjects = [
 export default {
   name: 'Projects',
   data: () => ({hardCodedProjects, projects:[]}),
-  async mounted() {
+  async created() {
     const myReposURL = 'https://api.github.com/users/colinmcneil/repos'
     const squaredLabsReposURL = 'https://api.github.com/orgs/squaredlabs/repos'
     const myReposRaw = await fetch(myReposURL)

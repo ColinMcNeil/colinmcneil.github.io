@@ -13,7 +13,7 @@
     </div>
     <div class="email">
       <h3>Email</h3>
-      <p><a href="mailto://colinmcneil@gmail.com">colinmcneil@gmail.com</a></p>
+      <p><a href="mailto://colinmcneil@gmail.comnp, ">colinmcneil@gmail.com</a></p>
     </div>
     <div class="location">
       <h3>Location</h3>

@@ -11,7 +11,7 @@ require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
 export default {
-  async mounted() {
+  async created() {
     let converter = new showdown.Converter()
     const URL =
       'https://gist.githubusercontent.com/ColinMcNeil/f005dd49aff4aece29677103f36e5f5e/raw/Resume.md'
