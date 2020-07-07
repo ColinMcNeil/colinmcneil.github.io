@@ -1,0 +1,45 @@
+[
+  {
+    "name": "me",
+    "content": "# Colin McNeil \n --- \n ## I write a lot of code  \n ### Full-Stack: 3 yrs \n ### React-Native: 1 yrs \n [colinmcneil@gmail.com](mailto:colinmcneil@gmail.com) \n \n [![alt text][1.1]][1] [![alt text][6.1]][6] [![alt text][5.1]][5]\n\n[1.1]: http://i.imgur.com/tXSoThF.png (twitter icon with padding)\n[2.1]: http://i.imgur.com/P3YfQoD.png (facebook icon with padding)\n[3.1]: http://i.imgur.com/yCsTjba.png (google plus icon with padding)\n[4.1]: http://i.imgur.com/YckIOms.png (tumblr icon with padding)\n[5.1]: http://i.imgur.com/1AGmwO3.png (dribbble icon with padding)\n[6.1]: http://i.imgur.com/0o48UoR.png (github icon with padding)\n[1]: http://www.twitter.com/breakingbaddies\n[2]: http://www.facebook.com/sednaoui\n[3]: https://plus.google.com/+CarlSednaoui\n[4]: http://carlsed.tumblr.com\n[5]: http://dribbble.com/colinmcneil\n[6]: http://www.github.com/colinmcneil",
+    "image": "logo.svg",
+    "color": "white"
+  },
+  {
+    "name": "Dance Hotspot",
+    "content": "I am a guy",
+    "image": "dance.png"
+  },
+  {
+    "name": "Parkshark",
+    "content": "I am a guy",
+    "image": "parkshark.png"
+  },
+  {
+    "name": "TP-Link Webapp",
+    "content": "I am a guy",
+    "image": "tplink.png"
+  },
+  {
+    "name": "PCM Toolset",
+    "content": "I am a guy",
+    "image": "pcmtools.png"
+  },
+  {
+    "name": "RDP Lab Scheduler",
+    "content": "I am a guy",
+    "image": "rdp.png"
+  },
+  {
+    "name": "me",
+    "content": "I am a guy"
+  },
+  {
+    "name": "me",
+    "content": "I am a guy"
+  },
+  {
+    "name": "me",
+    "content": "I am a guy"
+  }
+]
