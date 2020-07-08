@@ -56,11 +56,14 @@ a {
     color: black;
   }
   h1 {
-    font-size: 6rem;
+    font-size: 8vw;
     border: solid #137547 2px;
     line-height: 2.5rem;
     margin: 20px;
     vertical-align: middle;
+  }
+  h4 {
+    font-size: 3vw;
   }
   h1.enter:hover {
     padding: 3px;

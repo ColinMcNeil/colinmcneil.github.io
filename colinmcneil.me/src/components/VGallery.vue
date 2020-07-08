@@ -112,6 +112,7 @@ export default {
     justify-content: space-between;
     width: 100%;
     height: 70px;
+    padding-bottom: 30px;
     button {
         border: none;
         font-size: 50px;
@@ -119,7 +120,7 @@ export default {
         color: rgb(129, 129, 129);
         cursor: pointer;
         outline: none;
-        padding: 15px;
+        padding: 0 45px;
     }
     button::last-of-type {
         flex-direction: row-reverse;
@@ -135,6 +136,7 @@ export default {
         }
         .text {
             display: block;
+            padding-bottom: 10px;
         }
         .arrow {
             // display: block;
@@ -149,6 +151,7 @@ export default {
         }
         .text {
             display: block;
+            padding-bottom: 10px;
         }
         .arrow {
             // display: block;
