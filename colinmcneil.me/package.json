@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "copy": "cpx 'dist/**' '..' "
+    "copy": "cpx 'dist' '../' -v"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",

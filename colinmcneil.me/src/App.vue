@@ -1,8 +1,8 @@
 <template>
   <div id="app" v-if="welcome" :class={hover}>
-    <h4> { i }  am not a designer.</h4>
+    <h4> { i }&nbsp;&nbsp; am not a designer.</h4>
     <h1>welcome to my gallery</h1>
-    <h1 class="enter" @mouseenter="()=>hover=true" @mouseleave="()=>hover=false"><a href="#gallery" @click="() => welcome=false">enter</a></h1>
+    <h1 class="enter" @mouseenter="()=>hover=true" @mouseleave="()=>hover=false"><a href="#gallery"> enter</a></h1>
   </div>
   <v-gallery v-else/>
 </template>
@@ -17,7 +17,11 @@ export default {
     hover: false
   }),
   mounted(){
-    if(window.location.hash == '#gallery') this.welcome = false
+    window.onhashchange = () => {
+      console.log('change')
+      if(window.location.hash == '#gallery') this.welcome = false
+    }
+    window.onhashchange()
   }
 }
 </script>
@@ -42,9 +46,6 @@ a {
 <style style lang="scss" scoped>
 
 #app {
-  
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,9 +56,9 @@ a {
     color: black;
   }
   h1 {
-    font-size: 5vw;
+    font-size: 6rem;
     border: solid #137547 2px;
-    line-height: 2.5vw;
+    line-height: 2.5rem;
     margin: 20px;
     vertical-align: middle;
   }

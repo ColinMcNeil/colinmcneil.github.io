@@ -5,12 +5,12 @@
         </div>
         <div class="exhibits">
             <div class="page" v-for="(page, i) in layout" :key="'page' + i" :style="{transform}">
-                <v-exhibit v-for="(exhibit, j) in page" :key="'Exhibit ' + j" :color="getColor(i, j)" :style="{transform}" :exhibit="exhibit"/>
+                <v-exhibit v-for="(exhibit, j) in page" :key="'Exhibit ' + j" :color="getColor(i, j)" :exhibit="exhibit"/>
             </div>
         </div>
         <div class="controls">
             <button @click="previous" :style="{visibility: page > 0 ? 'visible' : 'hidden'}" class="back">
-                <span class="text">back</span>
+                <span class="text">back</span>  
                 <span class="arrow">←</span>
             </button>
             <button @click="next" :style="{visibility: !end ? 'visible' : 'hidden'}" class="next">
@@ -36,15 +36,12 @@ export default {
         scrolling: false
     }),
     mounted(){
-        window.onresize = () => {
-            this.width = innerWidth
-        }
         window.onwheel = ({deltaY}) => {
             if(this.scrolling) return
             this.scrolling = true
             if(deltaY < 0) this.previous()
             else this.next()
-            setTimeout(() => this.scrolling = false, 800)
+            setTimeout(() => {if(this.scrolling) this.scrolling = false}, 800)
         }
     },
     methods: {
@@ -53,7 +50,7 @@ export default {
             return '#' + this.colors[ index % this.colors.length ]
         },
         next() {
-            if(this.page < this.layout.length - 1) this.page++;
+            if(this.page < 20 - 1) this.page++;
         },
         previous() {
             if(this.page > 0) this.page -= 1;
@@ -66,16 +63,15 @@ export default {
         layout() {
             const {width, exhibits} = this
             const exhibitWidth = 400
-            const exhibitsPerPage = Math.floor(width / exhibitWidth)
-            // const pages = Math.ceil(length / exhibitsPerPage)
+            const exhibitsPerPage = Math.floor(width / exhibitWidth) || 1
             const layout = []
-            for(let i = 0; i<exhibits.length; i += exhibitsPerPage){
+            for(let i = 0; i < exhibits.length; i += exhibitsPerPage){
                 layout.push(exhibits.slice(i, i+exhibitsPerPage))
             }
             return layout
         },
         end() {
-            return this.page == this.layout.length - 1
+            return this.page == 20 - 1
         }
     }
 }
