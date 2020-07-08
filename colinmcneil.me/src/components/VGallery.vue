@@ -63,7 +63,8 @@ export default {
         layout() {
             const {width, exhibits} = this
             const exhibitWidth = 400
-            const exhibitsPerPage = Math.floor(width / exhibitWidth) || 1
+            let exhibitsPerPage = Math.floor(width / exhibitWidth) || 1
+            if(exhibitsPerPage > 5) exhibitsPerPage = 5
             const layout = []
             for(let i = 0; i < exhibits.length; i += exhibitsPerPage){
                 layout.push(exhibits.slice(i, i+exhibitsPerPage))
