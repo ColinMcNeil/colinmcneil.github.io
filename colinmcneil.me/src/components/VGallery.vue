@@ -58,7 +58,7 @@ export default {
     },
     computed: {
         transform() {
-            return `translateX(${this.page * -1 * this.width/2}px`
+            return `translateX(${this.page * -1 * this.width}px`
         },
         layout() {
             const {width, exhibits} = this
