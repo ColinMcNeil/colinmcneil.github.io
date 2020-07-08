@@ -50,7 +50,7 @@ export default {
             return '#' + this.colors[ index % this.colors.length ]
         },
         next() {
-            if(this.page < 20 - 1) this.page++;
+            if(this.page < this.layout.length - 1) this.page++;
         },
         previous() {
             if(this.page > 0) this.page -= 1;
@@ -71,7 +71,7 @@ export default {
             return layout
         },
         end() {
-            return this.page == 20 - 1
+            return this.page == this.layout.length - 1
         }
     }
 }
