@@ -6,8 +6,8 @@
             </div>
         </div>
         <div class="controls">
-            <button @click="previous">back</button>
-            <button @click="next">next</button>
+            <button @click="previous" :style="{visibility: page > 0 ? 'visible' : 'hidden'}">back</button>
+            <button @click="next" :style="{visibility: !end ? 'visible' : 'hidden'}">next</button>
         </div>
     </div>
 </template>
@@ -46,7 +46,7 @@ export default {
         },
         previous() {
             if(this.page > 0) this.page -= 1;
-        }
+        },
     },
     computed: {
         transform() {
@@ -62,6 +62,9 @@ export default {
                 layout.push(exhibits.slice(i, i+exhibitsPerPage))
             }
             return layout
+        },
+        end() {
+            return this.page == this.layout.length - 1
         }
     }
 }
@@ -108,9 +111,8 @@ export default {
         flex-direction: row-reverse;
     }
     button:hover {
-        border-top-color: #c75000;
-        border-left-color: #c75000;
         color: #c75000;
+        padding: 5px 30px;
     }
 }
 </style>

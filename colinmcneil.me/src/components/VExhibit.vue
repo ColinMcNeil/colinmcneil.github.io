@@ -1,6 +1,6 @@
 <template>
-<div class="exhibitContainer" :class="{more}">
-    <div class="exhibit" :style="{backgroundColor}"> 
+<div class="exhibitContainer" :class="{more, less: !more}">
+    <div class="exhibit" :style="{backgroundColor}" @click="() => more = !more"> 
         <img :src="exhibit.image ? require(`../assets/images/${exhibit.image}`) : `https://picsum.photos/200/300?random=${color}`" :style="{opacity: more ? 0 : 1}"/>
         <div class="more" :style="{opacity: more ? 1 : 0}">
             <vue-markdown class="exhibit-content">
@@ -53,6 +53,10 @@ export default {
             opacity: 0.2;
         }
     }
+    .info, .title {
+        transform: translateY(-150% );
+        z-index: 1;
+    }
     .exhibit-content {
         color: white;
     }
@@ -68,6 +72,20 @@ export default {
             color: white;
             padding-left: 10px;
         }
+        .info, .title {
+            transform: none;
+            z-index: 1;
+        }
+    }
+    &.less:hover {
+        .exhibit {
+            box-shadow: 0px 20px 30px 10px rgba(38, 38, 38, 0.5), 0px 0px 125px rgb(238, 230, 214);
+            transform: rotate3d(1, 1, 0, 15deg);
+        }
+        .info, .title {
+            transform: none;
+            z-index: 1;
+        }
     }
 }
 .exhibit {
@@ -75,16 +93,19 @@ export default {
     height: 60vh;
     color: black;
     box-shadow: 0px 15px 15px 4px rgba(38, 38, 38, 0.5), 0px 0px 125px rgb(238, 230, 214);
+    z-index: 5;
+    position: relative;
     padding: 10px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     img {
         width: 100%;
         max-height: 100%;
-        border: solid white 3px;
         padding: 20px;
+        border: double white 3px;
         box-sizing: border-box;
         height: 100%;
         object-fit: contain;
@@ -92,5 +113,6 @@ export default {
     .more {
         position: absolute;
     }
+    
 }
 </style>

@@ -31,15 +31,18 @@
     "image": "rdp.png"
   },
   {
-    "name": "me",
-    "content": "I am a guy"
+    "name": "Tea as Art",
+    "content": "I am a guy",
+    "image": "tea.png"
   },
   {
-    "name": "me",
-    "content": "I am a guy"
+      "name": "Cider",
+      "content": "I am a guy",
+      "image": "cider.png"
   },
   {
-    "name": "me",
-    "content": "I am a guy"
+      "name": "squared labs",
+      "content": "I am a guy",
+      "image": "squaredlabs.png"
   }
 ]
