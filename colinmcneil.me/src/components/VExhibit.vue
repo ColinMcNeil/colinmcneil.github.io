@@ -112,7 +112,7 @@ export default {
     cursor: pointer;
     img {
         width: 100%;
-        max-height: 100%;
+        max-height: 560px;
         padding: 20px;
         border: double white 3px;
         box-sizing: border-box;
