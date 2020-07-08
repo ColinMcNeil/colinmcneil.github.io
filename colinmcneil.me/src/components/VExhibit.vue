@@ -99,7 +99,7 @@ export default {
 }
 .exhibit {
     // background: rgb(238, 230, 230);
-    height: 60vh;
+    max-height: 600px;
     color: black;
     box-shadow: 0px 15px 15px 4px rgba(38, 38, 38, 0.5), 0px 0px 125px rgb(238, 230, 214);
     z-index: 5;
