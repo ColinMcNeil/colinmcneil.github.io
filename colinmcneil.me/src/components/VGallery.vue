@@ -1,13 +1,22 @@
 <template>
     <div class="container">
+        <div class="header">
+            touch the art.
+        </div>
         <div class="exhibits">
             <div class="page" v-for="(page, i) in layout" :key="'page' + i" :style="{transform}">
-                <v-exhibit v-for="(exhibit, i) in page" :key="'Exhibit ' + i" :color="randomColor()" :style="{transform}" :exhibit="exhibit"/>
+                <v-exhibit v-for="(exhibit, j) in page" :key="'Exhibit ' + j" :color="getColor(i, j)" :style="{transform}" :exhibit="exhibit"/>
             </div>
         </div>
         <div class="controls">
-            <button @click="previous" :style="{visibility: page > 0 ? 'visible' : 'hidden'}">back</button>
-            <button @click="next" :style="{visibility: !end ? 'visible' : 'hidden'}">next</button>
+            <button @click="previous" :style="{visibility: page > 0 ? 'visible' : 'hidden'}" class="back">
+                <span class="text">back</span>
+                <span class="arrow">←</span>
+            </button>
+            <button @click="next" :style="{visibility: !end ? 'visible' : 'hidden'}" class="next">
+                <span class="text">next</span>
+                <span class="arrow">→</span>
+            </button>
         </div>
     </div>
 </template>
@@ -18,7 +27,9 @@ import exhibits from '../assets/exhibits'
 export default {
     components: {VExhibit},
     data: () => ({
-        colors: ["17bebb","2e282a","cd5334","edb88b","fad8d6","aad922","6f7c12", "dad7cd","a3b18a","588157","3a5a40","344e41","261c15","f05d23"],
+        // colors: ["3f7cac","95afba","bdc4a7","d5e1a3","e2f89c","c64191","885053","fe5f55"],
+        colors: ["14342b","60935d","bab700","bbdfc5","ff579f","fb3640","247ba0","e2e2e2"],
+        lastpicked: -1,
         exhibits,
         page: 0,
         width: window.innerWidth,
@@ -37,9 +48,9 @@ export default {
         }
     },
     methods: {
-        randomColor(){
-            const int = Math.floor(Math.random() * this.colors.length)
-            return '#' + this.colors[int]
+        getColor(i, j){
+            const index = this.layout[0].length * i + j
+            return '#' + this.colors[ index % this.colors.length ]
         },
         next() {
             if(this.page < this.layout.length - 1) this.page++;
@@ -76,6 +87,16 @@ export default {
     display: flex;
     align-items: center;
 }
+.header {
+    position: fixed;
+    color: rgb(131, 131, 131);
+    top: 0;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    width: 100%;
+}
 .exhibits {
     display: flex;
     overflow: hidden;
@@ -94,25 +115,49 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    height: 70px;
     button {
         border: none;
-        font-size: 4vw;
-        background: black;
-        color: white;
-        min-width: 30px;
+        font-size: 50px;
+        background: transparent;
+        color: rgb(129, 129, 129);
         cursor: pointer;
-        display: flex;
-        padding: 5px 15px;
-        border: solid black 4px;
-        border-width: 5px 0px 0px 5px;
         outline: none;
+        padding: 15px;
     }
     button::last-of-type {
         flex-direction: row-reverse;
     }
     button:hover {
         color: #c75000;
-        padding: 5px 30px;
+    }
+    button.next {
+        display: flex;
+        flex-direction: column;
+        &:hover {
+            transform: rotate(-10deg) translateY(-100%);
+        }
+        .text {
+            display: block;
+        }
+        .arrow {
+            // display: block;
+            transform: rotate(10deg);
+        }
+    }
+    button.back {
+        display: flex;
+        flex-direction: column;
+        &:hover {
+            transform: rotate(10deg) translateY(-100%);
+        }
+        .text {
+            display: block;
+        }
+        .arrow {
+            // display: block;
+            transform: rotate(-10deg);
+        }
     }
 }
 </style>

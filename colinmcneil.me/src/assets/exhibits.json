@@ -1,48 +1,48 @@
 [
   {
     "name": "me",
-    "content": "# Colin McNeil \n --- \n ## I write a lot of code  \n ### Full-Stack: 3 yrs \n ### React-Native: 1 yrs \n [colinmcneil@gmail.com](mailto:colinmcneil@gmail.com) \n \n [![alt text][1.1]][1] [![alt text][6.1]][6] [![alt text][5.1]][5]\n\n[1.1]: http://i.imgur.com/tXSoThF.png (twitter icon with padding)\n[2.1]: http://i.imgur.com/P3YfQoD.png (facebook icon with padding)\n[3.1]: http://i.imgur.com/yCsTjba.png (google plus icon with padding)\n[4.1]: http://i.imgur.com/YckIOms.png (tumblr icon with padding)\n[5.1]: http://i.imgur.com/1AGmwO3.png (dribbble icon with padding)\n[6.1]: http://i.imgur.com/0o48UoR.png (github icon with padding)\n[1]: http://www.twitter.com/breakingbaddies\n[2]: http://www.facebook.com/sednaoui\n[3]: https://plus.google.com/+CarlSednaoui\n[4]: http://carlsed.tumblr.com\n[5]: http://dribbble.com/colinmcneil\n[6]: http://www.github.com/colinmcneil",
+    "content": "# Colin McNeil \n --- \n ## I write a lot of code  \n ### Full-Stack: 3 yrs \n ### React-Native: 1 yrs \n [colinmcneil@gmail.com](mailto:colinmcneil@gmail.com) \n \n [![alt text][1.1]][1] [![alt text][6.1]][6] [![alt text][5.1]][5]\n\n[1.1]: http://i.imgur.com/tXSoThF.png (twitter icon with padding)\n[2.1]: http://i.imgur.com/P3YfQoD.png (facebook icon with padding)\n[3.1]: http://i.imgur.com/yCsTjba.png (google plus icon with padding)\n[4.1]: http://i.imgur.com/YckIOms.png (tumblr icon with padding)\n[5.1]: http://i.imgur.com/1AGmwO3.png (dribbble icon with padding)\n[6.1]: http://i.imgur.com/0o48UoR.png (github icon with padding)\n[1]: http://www.twitter.com/breakingbaddies\n[2]: http://www.facebook.com/sednaoui\n[3]: https://plus.google.com/+CarlSednaoui\n[4]: http://carlsed.tumblr.com\n[5]: http://dribbble.com/DoctorDapper\n[6]: http://www.github.com/colinmcneil",
     "image": "logo.svg",
     "color": "white"
   },
   {
     "name": "Dance Hotspot",
-    "content": "I am a guy",
+    "content": "# Dance Hotspot \n --- \nThrough [XFactor Consultants](https://xfactorconsultants.com)\n### MVP\nA complimentary app integrating with Facebook to easily find Swing-Dancing events nearby, with auto-attendance via geofencing and analytics for event hosts.\nhttps://dancehotspot.com\n### Stack\n* React-Native (Expo Managed)\n* Express\n* MySQL (Sequelize ORM)",
     "image": "dance.png"
   },
   {
     "name": "Parkshark",
-    "content": "I am a guy",
+    "content": "# ParkShark\n---\nThrough [XFactor Consultants](https://xfactorconsultants.com)\n### MVP\nAirbnb but for parking spaces. \nhttps://parkshark.app\n### Stack\n* React-Native (Expo Managed)\n* Laravel (php)\n* MySQL\n\n",
     "image": "parkshark.png"
   },
   {
     "name": "TP-Link Webapp",
-    "content": "I am a guy",
+    "content": "# TP-Link Webapp\n---\nPersonal Project\n### MVP\nThe *only* webapp that allows control of TP-Link smarthome devices. Developed using an npm package based on reverse-engineering the android app.\nhttps://colinmcneil.me/TP-Link-WebApp/\n### Stack\n* Nuxt (Vue.js)\n\n",
     "image": "tplink.png"
   },
   {
     "name": "PCM Toolset",
-    "content": "I am a guy",
+    "content": "# PCM Device Report\n---\nFor [UConn](https://uconn.edu/)\n### MVP\nIntegrate with JAMF API to provide reporting on last checkin and battery status to gain live insights into classroom computers that may have been unplugged, stolen, or misplaced.\n### Stack\n* Laravel (php)\n* React\n* MySQL\n* IIS\n\n",
     "image": "pcmtools.png"
   },
   {
     "name": "RDP Lab Scheduler",
-    "content": "I am a guy",
+    "content": "# RDP Lab Scheduler\n---\nFor [UConn](https://uconn.edu/)\n### MVP\nLeverage existing on-campus lab machines as additional remote resources for UConn affiliates. Schedules time on a lab machine, and generates an RDP file for the user to use. After their time is over, they are logged out of the machine.\n### Stack\n* Laravel (php)\n* MySQL\n* IIS\n\n",
     "image": "rdp.png"
   },
   {
     "name": "Tea as Art",
-    "content": "I am a guy",
+    "content": "# Tea Art\n---\nFor [Class](https://uconn.edu/)\n### MVP\nExploring tea as an artform for a class on Asian Art\nhttps://colinmcneil.me/tea-art/ceremony/\n### Stack\n* Nuxt (Vue.js)\n\n",
     "image": "tea.png"
   },
   {
       "name": "Cider",
-      "content": "I am a guy",
+      "content": "# Cider\n---\nFor [UConn Research](https://ovpr.uconn.edu/)\n### MVP\nAn in-house fork of Northwestern University's Core Facilities management program. \nIncludes complete redesign, multiple new components, and integration with UConn systems. Much of my code was forked upstream and is being used across multiple institutions, including Dartmouth.\nhttps://cider.uconn.edu/facilities\n### Stack\n* Ruby on Rails\n\n",
       "image": "cider.png"
   },
   {
       "name": "squared labs",
-      "content": "I am a guy",
+      "content": "# Squared Labs Homepage\n---\nFor [UConn Research](https://ovpr.uconn.edu/)\n### MVP\nThe homepage for the Center for Open Resources & Equipment (CORE)'s in-house software group, SquaredLabs.\nhttps://squaredlabs.uconn.edu/\n### Stack\n* Nuxt\n* Directus (Headless CMS for MySQL)\n\n",
       "image": "squaredlabs.png"
   }
 ]

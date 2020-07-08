@@ -2,7 +2,7 @@
 <div class="exhibitContainer" :class="{more, less: !more}">
     <div class="exhibit" :style="{backgroundColor}" @click="() => more = !more"> 
         <img :src="exhibit.image ? require(`../assets/images/${exhibit.image}`) : `https://picsum.photos/200/300?random=${color}`" :style="{opacity: more ? 0 : 1}"/>
-        <div class="more" :style="{opacity: more ? 1 : 0}">
+        <div class="morecontent" :style="{opacity: more ? 1 : 0}">
             <vue-markdown class="exhibit-content">
                 {{exhibit.content || '# Nothing here?'}}
             </vue-markdown>
@@ -26,9 +26,10 @@ export default {
     }),
     computed: {
         backgroundColor() {
-            if(this.more) return 'rgb(100, 100, 100)'
-            if(this.exhibit.color) return this.exhibit.color
-            return this.color
+            let color = this.color
+            if(this.exhibit.color) color = this.exhibit.color
+            else if(this.more) color = 'rgb(240,240,240)'
+            return color
         }
     }
 }
@@ -57,8 +58,15 @@ export default {
         transform: translateY(-150% );
         z-index: 1;
     }
+    .morecontent {
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        padding: 20px;
+    }
     .exhibit-content {
-        color: white;
+        color: black;
+        
     }
     &.more {
         .title {
@@ -74,7 +82,8 @@ export default {
         }
         .info, .title {
             transform: none;
-            z-index: 1;
+            z-index: 16;
+            position: relative;
         }
     }
     &.less:hover {
@@ -84,7 +93,7 @@ export default {
         }
         .info, .title {
             transform: none;
-            z-index: 1;
+
         }
     }
 }
@@ -110,9 +119,14 @@ export default {
         height: 100%;
         object-fit: contain;
     }
-    .more {
-        position: absolute;
-    }
     
+}
+</style>
+<style lang="scss">
+.exhibit-content {
+    a {
+        color: rgb(170, 170, 235);
+        font-weight: bold;
+    }
 }
 </style>
