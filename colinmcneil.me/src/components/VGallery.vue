@@ -1,11 +1,8 @@
 <template>
-    <div class="container">
-        <div class="header">
-            touch the art.
-        </div>
+    <div class="container" :class="{dark}">
         <div class="exhibits">
             <div class="page" v-for="(page, i) in layout" :key="'page' + i" :style="{transform}">
-                <v-exhibit v-for="(exhibit, j) in page" :key="'Exhibit ' + j" :color="getColor(i, j)" :exhibit="exhibit"/>
+                <v-exhibit v-for="(exhibit, j) in page" :key="'Exhibit ' + j" :color="getColor(i, j)" :exhibit="exhibit" :dark="dark"/>
             </div>
         </div>
         <div class="controls">
@@ -18,6 +15,10 @@
                 <span class="arrow">→</span>
             </button>
         </div>
+        <div class="header">
+            do <span>not</span> touch the art.
+            <div class="dark" @click="()=>dark = !dark">{{dark ? 'lighten it up' : 'go dark'}}</div>
+        </div>  
     </div>
 </template>
 <script>
@@ -33,7 +34,8 @@ export default {
         exhibits,
         page: 0,
         width: window.innerWidth,
-        scrolling: false
+        scrolling: false,
+        dark: false
     }),
     mounted(){
         window.onwheel = ({deltaY}) => {
@@ -83,6 +85,15 @@ export default {
     height: 100vh;
     display: flex;
     align-items: center;
+    &.dark {
+        background: rgb(30,30,30);
+        * {
+            color: white;
+        }
+        .exhibitContainer * {
+            color: white;
+        }
+    }
 }
 .header {
     position: fixed;
@@ -93,6 +104,14 @@ export default {
     text-align: center;
     font-size: 30px;
     width: 100%;
+    font-family: 'Quantico';
+    span {
+        text-decoration: line-through;
+    }
+    .dark {
+        font-size: 20px;
+        cursor: pointer;
+    }
 }
 .exhibits {
     display: flex;
@@ -117,17 +136,20 @@ export default {
     button {
         border: none;
         font-size: 50px;
-        background: transparent;
-        color: rgb(129, 129, 129);
         cursor: pointer;
         outline: none;
         padding: 0 45px;
+        font-weight: bold;
+        text-shadow: 2px 2px 0px #c75000;
+        color: black;
+        background: transparent;
     }
     button::last-of-type {
         flex-direction: row-reverse;
     }
     button:hover {
         color: #c75000;
+        text-shadow: none;
     }
     button.next {
         display: flex;

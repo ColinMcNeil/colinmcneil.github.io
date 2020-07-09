@@ -1,8 +1,8 @@
 <template>
-<div class="exhibitContainer" :class="{more, less: !more}">
+<div class="exhibitContainer" :class="{more, less: !more, dark}" >
     <div class="exhibit" :style="{backgroundColor}" @click="() => more = !more"> 
         <img :src="exhibit.image ? require(`../assets/images/${exhibit.image}`) : `https://picsum.photos/200/300?random=${color}`" :style="{opacity: more ? 0 : 1}"/>
-        <div class="morecontent" :style="{opacity: more ? 1 : 0}">
+        <div class="morecontent" :style="{opacity: more ? 1 : 0, pointerEvents: more ? 'auto': 'none'}">
             <vue-markdown class="exhibit-content">
                 {{exhibit.content || '# Nothing here?'}}
             </vue-markdown>
@@ -20,7 +20,7 @@
 import VueMarkdown from 'vue-markdown'
 export default {
     components: {VueMarkdown},
-    props: {color: {type: String, required: true}, exhibit: {type: Object, required: true}},
+    props: {color: {type: String, required: true}, exhibit: {type: Object, required: true}, dark: {type: Boolean, required: true}},
     data: () => ({
         more: false
     }),
@@ -28,7 +28,7 @@ export default {
         backgroundColor() {
             let color = this.color
             if(this.exhibit.color) color = this.exhibit.color
-            else if(this.more) color = 'rgb(240,240,240)'
+            else if(this.more) color = 'rgb(250,250,250)'
             return color
         }
     }
@@ -57,6 +57,14 @@ export default {
     .info, .title {
         transform: translateY(-150% );
         z-index: 1;
+    }
+    &.dark {
+        .info, .title {
+            color: white;
+        }
+        .info {
+            opacity: 0.8;
+        }
     }
     .morecontent {
         display: flex;
@@ -113,7 +121,7 @@ export default {
     cursor: pointer;
     img {
         width: 100%;
-        max-height: 560px;
+        max-height: 530px;
         padding: 20px;
         border: double white 3px;
         box-sizing: border-box;

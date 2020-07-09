@@ -1,6 +1,6 @@
 <template>
   <div id="app" v-if="welcome" :class={hover}>
-    <h4> { i }&nbsp;&nbsp; am not a designer.</h4>
+    <h4> <span class="i">	&#123; i 	&#125; </span> &nbsp;&nbsp; am not a designer.</h4>
     <h1>welcome to my gallery</h1>
     <h1 class="enter" @mouseenter="()=>hover=true" @mouseleave="()=>hover=false"><a href="#gallery"> enter</a></h1>
   </div>
@@ -26,8 +26,11 @@ export default {
 }
 </script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quantico:ital@1&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,700;1,400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@700&family=Quantico:ital,wght@0,700;1,400&display=swap');
 html, body {
   margin: 0;
   background: black;
@@ -51,6 +54,9 @@ a {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  .i {
+    color: #c75000;
+  }
   &.hover {
     background: white;
     color: black;
@@ -58,16 +64,17 @@ a {
   h1 {
     font-size: 8vw;
     border: solid #137547 2px;
-    line-height: 2.5rem;
-    margin: 20px;
+    line-height: 2.5vw;
     vertical-align: middle;
+    margin: 3vw;
   }
   h4 {
     font-size: 3vw;
+    font-family: 'Quantico';
   }
   h1.enter:hover {
-    padding: 3px;
-    margin: 17px;
+    padding: 1.8vw;
+    margin: 1vw;
     color: #c75000;
     border-color: #c75000;
   }
