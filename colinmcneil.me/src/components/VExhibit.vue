@@ -71,6 +71,8 @@ export default {
         position: absolute;
         justify-content: center;
         padding: 20px;
+        height: 100%;
+        width: 100%;
     }
     .exhibit-content {
         color: black;
@@ -133,9 +135,13 @@ export default {
 </style>
 <style lang="scss">
 .exhibit-content {
+    font-size: 0.8em;   
+    width: 100%;
+    padding: 20px;
     a {
         color: rgb(170, 170, 235);
         font-weight: bold;
+        
     }
 }
 </style>
