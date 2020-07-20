@@ -131,14 +131,13 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 70px;
-    padding-bottom: 30px;
+    height: 4em;
     button {
         border: none;
-        font-size: 50px;
+        font-size: 3em;
         cursor: pointer;
         outline: none;
-        padding: 0 45px;
+        padding: 0 1em;
         font-weight: bold;
         text-shadow: 2px 2px 0px #c75000;
         color: black;
