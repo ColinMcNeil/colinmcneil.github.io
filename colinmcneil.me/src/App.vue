@@ -1,6 +1,5 @@
 <template>
   <div id="app" v-if="welcome" :class={hover}>
-    <h4> <span class="i">	&#123; i 	&#125; </span> &nbsp;&nbsp; am not a designer.</h4>
     <h1>welcome to my gallery</h1>
     <h1 class="enter" @mouseenter="()=>hover=true" @mouseleave="()=>hover=false"><a href="#gallery"> enter</a></h1>
   </div>
